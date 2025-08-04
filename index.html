@@ -37,6 +37,7 @@
       text-decoration: none;
       margin: 0 0.5rem;
     }
+
     .tabs {
       display: flex;
       justify-content: center;
@@ -44,7 +45,6 @@
       gap: 0.75rem;
       margin-bottom: 2rem;
     }
-
 
     input[type="radio"] {
       display: none;
@@ -54,12 +54,10 @@
       background: #004d4d;
       color: #e0f7fa;
       padding: 0.6rem 1.2rem;
-      margin: 0 0.5rem 1rem 0.5rem;
       cursor: pointer;
       border-radius: 5px;
       border: 1px solid #006666;
       transition: 0.3s ease;
-      display: inline-block;
     }
 
     label:hover {
@@ -94,12 +92,13 @@
       border-bottom: 1px solid #004d4d;
       padding-bottom: 0.3rem;
       margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .section-icon {
-      font-size: 1.5rem;
+    h2 i {
       color: #4dd0e1;
-      margin: 0.5rem 0 1rem 0;
     }
 
     a {
@@ -135,29 +134,30 @@
     </div>
   </div>
 
-  <!-- TABS MUST BE SIBLINGS TO CONTENT -->
-<div class="tabs">
-  <input type="radio" name="tabs" id="tab1" checked>
-  <label for="tab1">About</label>
+  <!-- TABS -->
+  <div class="tabs">
+    <input type="radio" name="tabs" id="tab1" checked>
+    <label for="tab1">About</label>
 
-  <input type="radio" name="tabs" id="tab2">
-  <label for="tab2">Experience</label>
+    <input type="radio" name="tabs" id="tab2">
+    <label for="tab2">Experience</label>
 
-  <input type="radio" name="tabs" id="tab3">
-  <label for="tab3">Certs / Education</label>
+    <input type="radio" name="tabs" id="tab3">
+    <label for="tab3">Certs / Education</label>
 
-  <input type="radio" name="tabs" id="tab4">
-  <label for="tab4">Projects</label>
-  
-    <h2>About Me</h2>
-    <div class="section-icon"><i class="fas fa-user"></i></div>
+    <input type="radio" name="tabs" id="tab4">
+    <label for="tab4">Projects</label>
+  </div>
+
+  <!-- TAB CONTENT SECTIONS -->
+  <div id="content1" class="tab-content">
+    <h2><i class="fas fa-user"></i> About Me</h2>
     <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments. I specialize in incident response, detection logic, and compliance frameworks like NIST 800-171 and CMMC.</p>
     <p>Currently expanding into cloud security and DevSecOps, focusing on Infrastructure as Code (Terraform), secure pipelines, and Microsoft Azure.</p>
   </div>
 
   <div id="content2" class="tab-content">
-    <h2>Experience</h2>
-    <div class="section-icon"><i class="fas fa-briefcase"></i></div>
+    <h2><i class="fas fa-briefcase"></i> Experience</h2>
     <ul>
       <li><strong>Cybersecurity Analyst</strong> – Applied Research Labs (2025–Present)</li>
       <li><strong>Security Analyst</strong> – Texas Legislative Council (2018–2025)</li>
@@ -166,8 +166,7 @@
   </div>
 
   <div id="content3" class="tab-content">
-    <h2>Certs / Education</h2>
-    <div class="section-icon"><i class="fas fa-graduation-cap"></i></div>
+    <h2><i class="fas fa-graduation-cap"></i> Certs / Education</h2>
     <ul>
       <li><strong>M.S. Cybersecurity</strong> – Western Governors University (2025)</li>
       <li><strong>B.S. Web and Multimedia</strong> – Westwood College</li>
@@ -176,8 +175,7 @@
   </div>
 
   <div id="content4" class="tab-content">
-    <h2>Projects</h2>
-    <div class="section-icon"><i class="fas fa-gears"></i></div>
+    <h2><i class="fas fa-gears"></i> Projects</h2>
     <ul>
       <li><strong>GitHub:</strong> <a href="https://github.com/dvivolo" target="_blank">github.com/dvivolo</a></li>
       <li><strong>DFIR Playbooks:</strong> Detection response workflow documentation for Microsoft Sentinel</li>
