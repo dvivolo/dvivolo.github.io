@@ -43,125 +43,7 @@
       font-size: 2.5rem;
       color: #ffffff;
     }
-.contact-fab {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #00bcd4;
-      color: #000;
-      padding: 0.8rem 1rem;
-      border-radius: 50px;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 0 10px #00bcd4;
-      animation: pulseGlow 2s infinite;
-      z-index: 999;
-    }
 
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 10px #00bcd4; }
-      50% { box-shadow: 0 0 20px #00bcd4, 0 0 40px #00bcd4; }
-      100% { box-shadow: 0 0 10px #00bcd4; }
-    }
-
-    .contact-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .contact-modal-content {
-      background: #1e1e1e;
-      border: 2px solid #00bcd4;
-      border-radius: 8px;
-      padding: 2rem;
-      color: #e0f7fa;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 0 20px #00bcd4;
-      position: relative;
-      animation: fadeInModal 0.4s ease-out;
-    }
-
-    @keyframes fadeInModal {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .contact-modal-content a {
-      display: block;
-      color: #4dd0e1;
-      margin: 0.5rem 0;
-      text-decoration: none;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 1.2rem;
-      color: #4dd0e1;
-      cursor: pointer;
-    }
-    .resume-fab {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: #00bcd4;
-  color: #000;
-  padding: 0.8rem 1rem;
-  border-radius: 50px;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 0 10px #00bcd4;
-  animation: pulseGlow 2s infinite;
-  z-index: 999;
-}
-
-.resume-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.resume-modal-content {
-  background: #1e1e1e;
-  border: 2px solid #00bcd4;
-  border-radius: 8px;
-  padding: 2rem;
-  color: #e0f7fa;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 0 20px #00bcd4;
-  position: relative;
-  animation: fadeInModal 0.4s ease-out;
-}
-
-.resume-modal-content a {
-  display: inline-block;
-  color: #4dd0e1;
-  margin-top: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.resume-modal-content a:hover {
-  text-decoration: underline;
-}
     .contact-info {
       text-align: center;
       font-size: 1rem;
@@ -260,7 +142,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      text-shadow: 0 0 3px #00bcd4;
+      text-shadow: 0 0 6px #00bcd4;
     }
 
     h2 i {
@@ -291,25 +173,27 @@
     }
 
     /* Scroll-to-top button */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 80px; /* was 20px — move it up above the lower-left button */
-  left: 20px;
-  display: none;
-  background-color: #00bcd4;
-  color: #000;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: 0 0 10px #00bcd4;
-  z-index: 1001;
-}
-#scrollTopBtn:hover {
-  background-color: #0097a7;
-  box-shadow: 0 0 15px #00bcd4;
-}
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #00bcd4;
+      color: white;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 0 10px #00e5ff;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #0097a7;
+    }
+
     /* Mobile responsiveness */
     @media (max-width: 600px) {
       body {
@@ -345,34 +229,6 @@
   </style>
 </head>
 <body>
-  <button class="contact-fab" onclick="document.getElementById('contactModal').style.display='flex'">
-    <i class="fas fa-address-card"></i>
-  </button>
-
-  <div id="contactModal" class="contact-modal" onclick="this.style.display='none'">
-    <div class="contact-modal-content" onclick="event.stopPropagation()">
-      <span class="close-modal" onclick="document.getElementById('contactModal').style.display='none'">&times;</span>
-      <h3><i class="fas fa-id-badge"></i> Contact Me</h3>
-      <a href="mailto:danielle.vivolo@gmail.com"><i class="fas fa-envelope"></i> danielle.vivolo@gmail.com</a>
-      <a href="tel:7372356411"><i class="fas fa-phone"></i> (737) 235-6411</a>
-      <a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    </div>
-  </div>
-<!-- Resume FAB Button -->
-<button class="resume-fab" onclick="document.getElementById('resumeModal').style.display='flex'">
-  <i class="fas fa-file-alt"></i>
-</button>
-
-<!-- Resume Modal -->
-<div id="resumeModal" class="resume-modal" onclick="this.style.display='none'">
-  <div class="resume-modal-content" onclick="event.stopPropagation()">
-    <span class="close-modal" onclick="document.getElementById('resumeModal').style.display='none'">&times;</span>
-    <h3><i class="fas fa-file-download"></i> Download My Resume</h3>
-    <a href="Danielle_Vivolo_Resume.pdf" download>
-      <i class="fas fa-download"></i> Danielle_Vivolo_Resume.pdf
-    </a>
-  </div>
-</div>
 
 <!-- Scroll-to-top button -->
 <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
@@ -386,9 +242,22 @@
 </script>
 <body>
 <h1>Danielle Vivolo</h1>
-<p style="font-size: 1.3rem; color: #4dd0e1; margin-top: -0.5rem; margin-bottom: 1rem; text-align: center; text-shadow: 0 0 5px #4dd0e1;">
-  Cybersecurity Analyst | DFIR | SOC Operations | Detection Logic | Compliance
-</p>
+
+<div class="contact-info">
+  <p>
+    <a href="mailto:danielle.vivolo@gmail.com"><i class="fas fa-envelope"></i> danielle.vivolo@gmail.com</a> |
+    <span><i class="fas fa-phone"></i> (737) 235-6411</span> |
+    <a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  </p>
+
+  <div class="download-resume">
+    <a href="Danielle_Vivolo_Resume.pdf" download>
+      <i class="fas fa-file-download"></i> Download Resume
+    </a>
+  </div>
+</div>
+
+
   <!-- Tab Inputs -->
   <input type="radio" name="tabs" id="tab1" checked>
   <input type="radio" name="tabs" id="tab2">
@@ -406,23 +275,18 @@
   </div>
 
   <!-- About Tab Content -->
-<!-- About Tab Content -->
-<div id="about" class="tab-content">
-
-  <h2><i class="fas fa-user"></i> About Me</h2>
-  <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments.</p>
-
-  <ul>
-    <li><i class="fas fa-bug"></i> Incident response, detection logic, SOC triage, alert tuning</li>
-    <li><i class="fas fa-book"></i> Creator of documentation, triage guides, and analyst workflow playbooks</li>
-    <li><i class="fas fa-shield-alt"></i> Familiar with CMMC and NIST 800-171 frameworks</li>
-    <li><i class="fas fa-cloud"></i> Exploring DevSecOps: Terraform, Azure Security, Secure Pipelines</li>
-    <li><i class="fas fa-code"></i> Enjoy translating detection logic into actionability for analysts</li>
-  </ul>
-
-  <p>I started my career managing technical support teams, moved into mobile application project management, and eventually found my path in infrastructure, sysadmin, and cybersecurity roles — where I thrive in operations, clarity, and collaborative problem-solving.</p>
-
-</div>
+  <div id="content1" class="tab-content">
+    <h2><i class="fas fa-user"></i> About Me</h2>
+    <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments.</p>
+    <ul>
+      <li><i class="fas fa-bug"></i> Incident response, detection logic, SOC triage, alert tuning</li>
+      <li><i class="fas fa-book"></i> Creator of documentation, triage guides, and analyst workflow playbooks</li>
+      <li><i class="fas fa-shield-alt"></i> Familiar with CMMC and NIST 800-171 frameworks</li>
+      <li><i class="fas fa-cloud"></i> Exploring DevSecOps: Terraform, Azure Security, Secure Pipelines</li>
+      <li><i class="fas fa-code"></i> Enjoy translating detection logic into actionability for analysts</li>
+    </ul>
+    <p>I started my career managing technical support teams, moved into mobile application project management, and eventually found my path in infrastructure, sysadmin, and cybersecurity roles — where I thrive in operations, clarity, and collaborative problem-solving.</p>
+  </div>
 
   <!-- Experience Tab Content -->
   <div id="content2" class="tab-content">
@@ -486,32 +350,7 @@
       <li><i class="fas fa-users-cog"></i> Process-driven with a knack for streamlining analyst workflows</li>
       <li><i class="fas fa-project-diagram"></i> Cross-team communicator and trusted compliance partner</li>
     </ul>
-<section class="tryhackme-badge" style="margin-top: 2rem; text-align: center;">
-  <h3 style="color: #4dd0e1; text-shadow: 0 0 6px #00bcd4;">
-    <i class="fas fa-user-secret" style="margin-right: 8px;"></i>TryHackMe Badges
-  </h3>
-  <p style="color: #80cbc4;">I’ve just started playing around with TryHackMe, so don’t judge lol.</p>
-  <div style="
-    display: inline-block;
-    background: #1a1a1a;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 12px #004d4d;
-    margin-top: 1rem;
-    max-width: 100%;
-  ">
-    <iframe 
-      src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2772470" 
-      style="border: none; width: 310px; height: 200px; overflow: hidden;"
-      loading="lazy"
-      title="TryHackMe Badge"
-      scrolling="no"
-    ></iframe>
   </div>
-</section>
-
-  </div>
-</div>
 
   <footer>
     <p>© 2025 Danielle Vivolo — All rights reserved.</p>
