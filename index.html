@@ -214,36 +214,6 @@
     &copy; 2025 Danielle Vivolo. All rights reserved.
   </footer>
 
-<script>
-  const buttons = document.querySelectorAll('.tab-button');
-  const tabs = document.querySelectorAll('.tab');
-
-  buttons.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      // Update active button
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Handle tab transitions
-      tabs.forEach((tab, i) => {
-        if (i === index) {
-          tab.style.display = 'block';
-          setTimeout(() => tab.classList.add('show'), 10);
-        } else {
-          tab.classList.remove('show');
-          setTimeout(() => {
-            tab.style.display = 'none';
-          }, 400); // matches CSS transition time
-        }
-      });
-    });
-  });
-
-  // Show the first tab by default
-  tabs[0].style.display = 'block';
-  setTimeout(() => tabs[0].classList.add('show'), 10);
-</script>
-
 </body>
 </html>
 
