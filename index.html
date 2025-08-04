@@ -14,19 +14,14 @@
       padding: 2rem;
     }
 
-    .content-wrapper {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-
     h1 {
-      margin-bottom: 0.5rem;
+      text-align: center;
       font-size: 2.5rem;
       color: #ffffff;
     }
 
     .contact-info {
+      text-align: center;
       font-size: 1rem;
       color: #80cbc4;
       margin-bottom: 2rem;
@@ -38,7 +33,7 @@
       margin: 0 0.5rem;
     }
 
-    .tabs {
+    .tab-buttons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -77,7 +72,7 @@
       text-align: left;
       box-shadow: 0 0 6px #004d4d;
       max-width: 900px;
-      margin: auto;
+      margin: 0 auto 2rem;
     }
 
     #tab1:checked ~ #content1,
@@ -125,31 +120,27 @@
 
 <body>
 
-  <div class="content-wrapper">
-    <h1>Danielle Vivolo</h1>
-    <div class="contact-info">
-      <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> |
-      <span>(737) 235-6411</span> |
-      <a href="https://linkedin.com/in/daniellevivolo" target="_blank">LinkedIn</a>
-    </div>
+  <h1>Danielle Vivolo</h1>
+  <div class="contact-info">
+    <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> |
+    <span>(737) 235-6411</span> |
+    <a href="https://linkedin.com/in/daniellevivolo" target="_blank">LinkedIn</a>
   </div>
 
   <!-- TABS -->
-  <div class="tabs">
-    <input type="radio" name="tabs" id="tab1" checked>
-    <label for="tab1">About</label>
+  <input type="radio" name="tabs" id="tab1" checked>
+  <label for="tab1">About</label>
 
-    <input type="radio" name="tabs" id="tab2">
-    <label for="tab2">Experience</label>
+  <input type="radio" name="tabs" id="tab2">
+  <label for="tab2">Experience</label>
 
-    <input type="radio" name="tabs" id="tab3">
-    <label for="tab3">Certs / Education</label>
+  <input type="radio" name="tabs" id="tab3">
+  <label for="tab3">Certs / Education</label>
 
-    <input type="radio" name="tabs" id="tab4">
-    <label for="tab4">Projects</label>
-  </div>
+  <input type="radio" name="tabs" id="tab4">
+  <label for="tab4">Projects</label>
 
-  <!-- TAB CONTENT SECTIONS -->
+  <!-- TAB CONTENT -->
   <div id="content1" class="tab-content">
     <h2><i class="fas fa-user"></i> About Me</h2>
     <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments. I specialize in incident response, detection logic, and compliance frameworks like NIST 800-171 and CMMC.</p>
@@ -189,5 +180,3 @@
 
 </body>
 </html>
-
-
