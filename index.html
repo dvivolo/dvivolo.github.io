@@ -48,7 +48,7 @@
       text-align: center;
       font-size: 1rem;
       color: #80cbc4;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -151,11 +151,6 @@
       filter: drop-shadow(0 0 4px #00e5ff);
     }
 
-    @keyframes iconPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
     a {
       color: #4dd0e1;
       text-decoration: none;
@@ -176,14 +171,11 @@
       padding-left: 1.2rem;
     }
 
+    /* Mobile responsiveness */
     @media (max-width: 600px) {
       body {
         padding: 1rem;
         border-width: 2px;
-      }
-
-      h1 {
-        font-size: 2rem;
       }
 
       .tab-buttons {
@@ -191,13 +183,16 @@
         align-items: center;
       }
 
-      label {
-        width: 90%;
-        text-align: center;
+      .tab-content {
+        padding: 1.5rem;
       }
 
-      .tab-content {
-        padding: 1rem;
+      h1 {
+        font-size: 2rem;
+      }
+
+      label {
+        padding: 0.5rem 1rem;
       }
 
       .contact-info {
