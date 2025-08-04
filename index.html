@@ -16,7 +16,6 @@
       position: relative;
     }
 
-    /* Animated Hex Grid Background */
     body::before {
       content: "";
       position: fixed;
@@ -156,6 +155,97 @@
   </style>
 </head>
 <body>
-  <!-- Your existing content goes here -->
+  <h1>Danielle Vivolo</h1>
+  <div class="contact-info">
+    <a href="mailto:danielle.vivolo@gmail.com"><i class="fas fa-envelope"></i>danielle.vivolo@gmail.com</a>
+    | <span><i class="fas fa-phone"></i>(737) 235-6411</span>
+    | <a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+  </div>
+
+  <!-- TABS - Inputs must come first -->
+  <input type="radio" name="tabs" id="tab1" checked>
+  <input type="radio" name="tabs" id="tab2">
+  <input type="radio" name="tabs" id="tab3">
+  <input type="radio" name="tabs" id="tab4">
+  <input type="radio" name="tabs" id="tab5">
+
+  <!-- TABS - Visible buttons wrapped and styled -->
+  <div class="tab-buttons">
+    <label for="tab1">About</label>
+    <label for="tab2">Experience</label>
+    <label for="tab3">Certifications</label>
+    <label for="tab4">Projects</label>
+    <label for="tab5">Skills</label>
+  </div>
+
+  <div id="content1" class="tab-content">
+    <h2><i class="fas fa-user"></i> About Me</h2>
+    <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments. I specialize in incident response, detection logic, and compliance frameworks like NIST 800-171 and CMMC.</p>
+    <p>I naturally gravitate toward documentation and workflow structure. I’ve created playbooks, triage guides, and compliance narratives that simplify complexity and support team efficiency.</p>
+    <p>Currently expanding into cloud security and DevSecOps, focusing on Infrastructure as Code (Terraform), secure pipelines, and Microsoft Azure. I'm hands-on in learning, practical in execution, and constantly refining how I connect detection logic to analyst actionability.</p>
+    <p>My background spans technical team management (mobile), infrastructure, systems admin, and now security — giving me a wide-angle lens on cross-functional pain points and how to fix them.</p>
+  </div>
+
+  <div id="content2" class="tab-content">
+    <h2><i class="fas fa-briefcase"></i> Experience</h2>
+    <ul>
+      <li><strong>Cybersecurity Analyst – Applied Research Labs (2025–Present)</strong>
+        <ul>
+          <li>Conduct packet-level traffic analysis using Arkime and Wireshark to validate alerts</li>
+          <li>Support CMMC compliance efforts with documented risk assessments and gap analysis</li>
+          <li>Investigate alerts and anomalies via Sentinel, Splunk, and Fidelis tools</li>
+          <li>Created and improved alert triage documentation for faster analyst actionability</li>
+        </ul>
+      </li>
+      <li><strong>Security Analyst – Texas Legislative Council (2018–2025)</strong>
+        <ul>
+          <li>Performed SOC triage, documented playbooks, and handled routine IR</li>
+          <li>Created internal detection-response workflows and enrichment recommendations</li>
+          <li>Led compliance documentation efforts for NIST 800-171, TX DIR, and NERC CIP frameworks</li>
+          <li>Supported endpoint visibility using SIEM, EDR, and behavioral analytics</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div id="content3" class="tab-content">
+    <h2><i class="fas fa-graduation-cap"></i> Certs / Education</h2>
+    <ul>
+      <li><strong>M.S. Cybersecurity</strong> – Western Governors University (2025)</li>
+      <li><strong>B.S. Web and Multimedia</strong> – Westwood College</li>
+      <li><strong>Current Certifications</strong> – CompTIA Security+, CompTIA CySA+, CompTIA PenTest+, ISC2 CC</li>
+      <li><strong>Studying:</strong> SecurityX (CompTIA CASP equivalent), ISACA CISM, AZ-500 (Azure Security)</li>
+    </ul>
+  </div>
+
+  <div id="content4" class="tab-content">
+    <h2><i class="fas fa-gears"></i> Projects <span style="font-size: 0.9rem; font-weight: normal;">(Work in Progress)</span></h2>
+    <ul>
+      <li><i class="fas fa-book"></i> <strong>DFIR Playbooks:</strong> Detection response workflow documentation for Microsoft Sentinel (focused on triage logic, contextual enrichment, and analyst actionability)</li>
+      <li><i class="fas fa-server"></i> <strong>Terraform Labs:</strong> Infrastructure as Code projects emphasizing secure Azure architecture and role-based access control (RBAC)</li>
+      <li><i class="fas fa-network-wired"></i> <strong>Kubernetes Labs:</strong> Hands-on learning with Kubernetes deployments, Terraform modules, and secure cluster provisioning (in progress)</li>
+    </ul>
+  </div>
+
+  <div id="content5" class="tab-content">
+    <h2><i class="fas fa-tools"></i> Skills</h2>
+    <h3 style="color:#4dd0e1;"><i class="fas fa-terminal"></i> Technical:</h3>
+    <ul>
+      <li><i class="fas fa-shield-alt"></i> SOC Operations, Threat Detection, Alert Tuning, DFIR</li>
+      <li><i class="fas fa-cogs"></i> Microsoft Sentinel, Splunk (read-only), Arkime, Wireshark, ServiceDesk</li>
+      <li><i class="fas fa-cloud"></i> Azure Security (RBAC, Identity, Defender), Infrastructure as Code (Terraform)</li>
+      <li><i class="fas fa-code"></i> PowerShell, YAML, Markdown, basic Python</li>
+    </ul>
+    <h3 style="color:#4dd0e1;"><i class="fas fa-user-check"></i> Soft Skills:</h3>
+    <ul>
+      <li><i class="fas fa-book"></i> Strong documentation writer: playbooks, workflows, triage guides</li>
+      <li><i class="fas fa-users-cog"></i> Process-driven with a knack for streamlining analyst workflows</li>
+      <li><i class="fas fa-project-diagram"></i> Cross-team communicator and trusted compliance partner</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© 2025 Danielle Vivolo — All rights reserved.</p>
+  </footer>
 </body>
 </html>
