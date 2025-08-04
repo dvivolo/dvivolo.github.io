@@ -8,32 +8,51 @@
   <style>
     body {
       margin: 0;
-      background: #0a0a0a;
-      background-image: url('https://www.transparenttextures.com/patterns/circuit-board.png');
-      background-size: cover;
-      background-attachment: fixed;
-      color: #f2f2f2;
       font-family: 'Segoe UI', sans-serif;
-      animation: pulseBackground 10s infinite ease-in-out;
+      background-color: #0a0a0a;
+      background-image: url('data:image/svg+xml;utf8,
+        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" fill="none">
+          <rect x="1" y="1" width="98" height="98" stroke="%23333333" stroke-width="0.5"/>
+          <path d="M 0 25 H 25 V 0 M 75 0 V 25 H 100 M 0 75 H 25 V 100 M 75 100 V 75 H 100" stroke="%23444444" stroke-width="0.5"/>
+          <circle cx="50" cy="50" r="1" fill="%23666666"/>
+        </svg>');
+      background-size: 200px 200px;
+      background-attachment: fixed;
+      color: #e0e0e0;
+      animation: pulseBg 15s infinite alternate ease-in-out;
     }
 
-    @keyframes pulseBackground {
-      0%, 100% { filter: brightness(1); }
-      50% { filter: brightness(1.05); }
+    @keyframes pulseBg {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.05); }
     }
 
     header {
       text-align: center;
       padding: 2rem;
-      border-bottom: 1px solid #333;
+      background: linear-gradient(145deg, #1f002f, #2a0052);
+      border-bottom: 2px solid #6b21a8;
+      box-shadow: 0 0 12px #6b21a880;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #ffffff;
+      text-shadow: 0 0 8px #8a2be2;
+    }
+
+    header p a {
+      color: #66ccff;
+      text-decoration: none;
     }
 
     .tabs {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 1rem;
-      padding: 1rem;
+      padding: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .tabs input[type="radio"] {
@@ -41,38 +60,43 @@
     }
 
     .tabs label {
-      background-color: #1e1e1e;
+      background-color: #1e1e2f;
       border: 1px solid #444;
+      color: #f2f2f2;
       padding: 0.75rem 1.5rem;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px #2a0052;
     }
 
     .tabs label:hover,
     .tabs input[type="radio"]:checked + label {
       background-color: #3e0e64;
-      border-color: #6b21a8;
+      border-color: #8a2be2;
+      box-shadow: 0 0 12px #8a2be2aa;
     }
 
     .tab-content {
       display: none;
+      padding: 2rem;
       max-width: 800px;
-      margin: auto;
-      padding: 2rem;
+      margin: 0 auto;
+      animation: fadeIn 0.4s ease;
+      background: rgba(25, 25, 35, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 0 10px #6b21a880;
     }
 
-    #tab1:checked ~ #content1,
-    #tab2:checked ~ #content2,
-    #tab3:checked ~ #content3 {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #tab1:checked ~ .content #content1,
+    #tab2:checked ~ .content #content2,
+    #tab3:checked ~ .content #content3 {
       display: block;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #888;
-      font-size: 0.9rem;
     }
 
     a {
@@ -84,8 +108,17 @@
       text-decoration: underline;
     }
 
-    h1, h2 {
-      margin: 0.5em 0;
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    h2 {
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.5rem;
+      color: #ffffff;
     }
   </style>
 </head>
@@ -93,47 +126,50 @@
 <body>
   <header>
     <h1>Danielle Vivolo</h1>
-    <p>Cybersecurity Analyst | Incident Response | Compliance | DevSecOps-In-Progress</p>
-    <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> | Phone: 737-293-6233</p>
+    <p>Cybersecurity Analyst | Detection & Response | Compliance | DevSecOps</p>
+    <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> | Phone: (737) 235-6411</p>
     <p><a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
   </header>
 
   <div class="tabs">
-    <input type="radio" name="tabs" id="tab1" checked>
+    <input type="radio" name="tab" id="tab1" checked>
     <label for="tab1"><i class="fas fa-user"></i> About</label>
 
-    <input type="radio" name="tabs" id="tab2">
-    <label for="tab2"><i class="fas fa-folder"></i> Projects</label>
+    <input type="radio" name="tab" id="tab2">
+    <label for="tab2"><i class="fas fa-folder-open"></i> Projects</label>
 
-    <input type="radio" name="tabs" id="tab3">
+    <input type="radio" name="tab" id="tab3">
     <label for="tab3"><i class="fas fa-envelope"></i> Contact</label>
   </div>
 
-  <section id="content1" class="tab-content">
-    <h2>About Me</h2>
-    <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments. I specialize in incident response, detection logic, and compliance frameworks like NIST 800-171 and CMMC.</p>
-    <p>I’m currently expanding into cloud security and DevSecOps, focusing on Infrastructure as Code (Terraform), secure pipelines, and Azure tooling. I enjoy breaking down complex detections and creating clear, actionable workflows for analysts.</p>
-  </section>
+  <div class="content">
+    <section id="content1" class="tab-content">
+      <h2>About Me</h2>
+      <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments. I specialize in incident response, detection logic, and compliance frameworks like NIST 800-171 and CMMC.</p>
+      <p>Currently expanding into cloud security and DevSecOps, focusing on Infrastructure as Code (Terraform), secure pipelines, and Microsoft Azure. I thrive in structured environments and enjoy translating technical signals into actionable workflows.</p>
+    </section>
 
-  <section id="content2" class="tab-content">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>GitHub:</strong> <a href="https://github.com/daniellevivolo" target="_blank">github.com/daniellevivolo</a></li>
-      <li><strong>DFIR Playbooks:</strong> Detection response workflow documentation for Microsoft Sentinel</li>
-      <li><strong>Terraform Labs:</strong> Hands-on Infrastructure as Code experiments</li>
-    </ul>
-  </section>
+    <section id="content2" class="tab-content">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>GitHub:</strong> <a href="https://github.com/dvivolo" target="_blank">github.com/dvivolo</a></li>
+        <li><strong>DFIR Playbooks:</strong> Detection response workflow documentation for Microsoft Sentinel</li>
+        <li><strong>Terraform Labs:</strong> Hands-on Infrastructure as Code experiments</li>
+      </ul>
+    </section>
 
-  <section id="content3" class="tab-content">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/daniellevivolo" target="_blank">linkedin.com/in/daniellevivolo</a></p>
-  </section>
+    <section id="content3" class="tab-content">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/daniellevivolo" target="_blank">linkedin.com/in/daniellevivolo</a></p>
+    </section>
+  </div>
 
   <footer>
     <p>© 2025 Danielle Vivolo — All rights reserved.</p>
   </footer>
 </body>
 </html>
+
 
 
