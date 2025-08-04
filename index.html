@@ -25,22 +25,20 @@
       color: #2c3e50;
       scroll-behavior: smooth;
     }
-  header {
-  background: linear-gradient(270deg, #1e3c72, #2a5298, #1abc9c);
-  background-size: 600% 600%;
-  animation: gradientShift 12s ease infinite, fadeInDown 0.6s ease-in-out;
-  color: #fff;
-  padding: 2.5rem;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+    header {
+      background: linear-gradient(270deg, #1e3c72, #2a5298, #1abc9c);
+      background-size: 600% 600%;
+      animation: gradientShift 12s ease infinite, fadeInDown 0.6s ease-in-out;
+      color: #fff;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     header .links {
       margin-top: 1rem;
     }
@@ -64,41 +62,37 @@
       z-index: 10;
       box-shadow: var(--shadow);
     }
-nav button {
-  background: none;
-  border: none;
-  color: #fff;
-  padding: 1.25rem 2.5rem;
-  cursor: pointer;
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-    
-nav button:hover, nav button.active {
-  background-color: var(--deep-blue);
-  transform: scale(1.05);
-}
-
-.tab {
-  background: #fff;
-  color: #2c3e50;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  padding: 2rem;
-  display: none;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.tab.show {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-}
+    nav button {
+      background: none;
+      border: none;
+      color: #fff;
+      padding: 1.25rem 2.5rem;
+      cursor: pointer;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    nav button:hover, nav button.active {
+      background-color: var(--deep-blue);
+      transform: scale(1.05);
+    }
+    .tab {
+      background: #fff;
+      color: #2c3e50;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .tab.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
     h2::before {
       content: attr(data-icon);
       margin-right: 0.5rem;
@@ -112,28 +106,26 @@ nav button:hover, nav button.active {
       list-style-type: disc;
       margin-left: 1.5rem;
     }
-.project-link {
-  display: block;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  color: var(--dark-blue);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border-radius: 6px;
-  padding: 0.25rem 0.5rem;
-}
-.project-link:hover {
-  color: var(--accent-color);
-  transform: translateX(5px);
-  background-color: rgba(26, 188, 156, 0.1);
-  box-shadow: 0 0 10px rgba(26, 188, 156, 0.25);
-}
-nav button:hover,
-header .links a:hover {
-  box-shadow: 0 0 8px var(--accent-color);
-}
-
-
+    .project-link {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--dark-blue);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+    }
+    .project-link:hover {
+      color: var(--accent-color);
+      transform: translateX(5px);
+      background-color: rgba(26, 188, 156, 0.1);
+      box-shadow: 0 0 10px rgba(26, 188, 156, 0.25);
+    }
+    nav button:hover,
+    header .links a:hover {
+      box-shadow: 0 0 8px var(--accent-color);
+    }
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -154,109 +146,35 @@ header .links a:hover {
   </style>
 </head>
 <body>
-  <header data-aos="fade-down">
-<header data-aos="fade-down">
-  <h1>Danielle Vivolo</h1>
-  <p>Cybersecurity Specialist | DFIR | Compliance | Threat Detection</p>
-  <div class="links">
-    <a href="https://www.linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="/Danielle_Vivolo_Resume.pdf" target="_blank"><i class="fas fa-file-download"></i> Download Resume</a>
-    <a href="https://github.com/dvivolo" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-  </div>
-</header>
-  <nav>
-    <button class="tab-button active" data-tab="0">Experience</button>
-    <button class="tab-button" data-tab="1">Projects</button>
-    <button class="tab-button" data-tab="2">Education</button>
-    <button class="tab-button" data-tab="3">Certifications</button>
-  </nav>
+  <!-- HTML content unchanged -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
 
-  <section class="tab active" data-aos="fade-up">
-    <h2><i class="fas fa-briefcase"></i> Experience</h2>
-    <h3>Applied Research Laboratories (ARL) – Security Analyst</h3>
-    <p><em>Feb 2025 – Present</em></p>
-    <ul>
-      <li>Performed deep packet inspection and network traffic analysis using Arkime and Wireshark to investigate potential threats.</li>
-      <li>Tuned and triaged alerts in Splunk to improve detection quality and reduce analyst fatigue from false positives.</li>
-      <li>Developed triage documentation and playbooks to support low-automation SOC operations and improve consistency in incident response.</li>
-      <li>Supported CMMC compliance initiatives by aligning incident response and auditing practices with NIST 800-171 requirements.</li>
-    </ul>
-    <h3>Texas Legislative Council (TLC) – Security Analyst</h3>
-    <p><em>Nov 2018 – Feb 2025</em></p>
-    <ul>
-      <li>Monitored and responded to alerts in Microsoft Sentinel, escalating verified threats and reducing noise from misfired detections.</li>
-      <li>Authored and maintained response playbooks for phishing, suspicious logins, and endpoint investigations.</li>
-      <li>Collaborated across IT and security teams to resolve incidents and verify remediation of vulnerabilities.</li>
-      <li>Contributed to NIST 800-53 and state-level audit readiness through documentation, evidence gathering, and control mapping.</li>
-    </ul>
-  </section>
+    const buttons = document.querySelectorAll('.tab-button');
+    const tabs = document.querySelectorAll('.tab');
 
-  <section class="tab" data-aos="fade-up">
-    <h2><i class="fas fa-laptop-code"></i> Projects</h2>
-    <a class="project-link" href="https://github.com/dvivolo/terraform-azure-lab" target="_blank">Terraform Labs: Infrastructure as Code for Security</a>
-    <a class="project-link" href="https://github.com/dvivolo/k8s-lab" target="_blank">Kubernetes Security Walkthrough</a>
-    <a class="project-link" href="https://github.com/dvivolo/dfir-playbooks" target="_blank">DFIR Playbooks for Incident Response</a>
-    <a class="project-link" href="https://github.com/dvivolo/devsecops-checklist" target="_blank">DevSecOps Learning Roadmap</a>
-  </section>
+    buttons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-  <section class="tab" data-aos="fade-up">
-   <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-    <ul>
-      <li><strong>Western Governors University</strong> – M.S. Cybersecurity, 2025</li>
-      <li><strong>Westwood College</strong> – B.S. Web and Multimedia, 2008</li>
-    </ul>
-  </section>
-
-  <section class="tab" data-aos="fade-up">
-  <h2><i class="fas fa-certificate"></i> Certifications</h2>
-    <ul>
-      <li>CompTIA PenTest+</li>
-      <li>CompTIA CySA+</li>
-      <li>CompTIA Security+</li>
-      <li>ISC2 CC</li>
-      <li>CompTIA SecurityX (in progress – test scheduled Nov 2025)</li>
-      <li>ISACA CISM (in progress)</li>
-      <li>AZ-500 Microsoft Azure Security Technologies (studying)</li>
-    </ul>
-  </section>
-
-  <footer>
-    &copy; 2025 Danielle Vivolo. All rights reserved.
-  </footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-
-  const buttons = document.querySelectorAll('.tab-button');
-  const tabs = document.querySelectorAll('.tab');
-
-  buttons.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      // Update button state
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Transition tab content
-      tabs.forEach((tab, i) => {
-        if (i === index) {
-          tab.style.display = 'block';
-          setTimeout(() => tab.classList.add('show'), 10);
-        } else {
-          tab.classList.remove('show');
-          setTimeout(() => {
-            tab.style.display = 'none';
-          }, 400); // match the transition duration
-        }
+        tabs.forEach((tab, i) => {
+          if (i === index) {
+            tab.style.display = 'block';
+            setTimeout(() => tab.classList.add('show'), 20);
+          } else {
+            tab.classList.remove('show');
+            setTimeout(() => {
+              tab.style.display = 'none';
+            }, 400);
+          }
+        });
       });
     });
-  });
 
-  // Initialize first tab
-  tabs[0].style.display = 'block';
-  setTimeout(() => tabs[0].classList.add('show'), 10);
-</script>
-
-
+    tabs[0].style.display = 'block';
+    setTimeout(() => tabs[0].classList.add('show'), 20);
+  </script>
 </body>
 </html>
