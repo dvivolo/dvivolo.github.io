@@ -11,6 +11,7 @@
       --accent-color: #1abc9c;
       --dark-blue: #2a5298;
       --deep-blue: #1e3c72;
+      --shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     * {
       box-sizing: border-box;
@@ -21,20 +22,21 @@
       padding: 0;
       background: linear-gradient(to right, #fdfbfb, #ebedee);
       color: #2c3e50;
+      scroll-behavior: smooth;
     }
     header {
-      background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(270deg, #1e3c72, #2a5298);
-      background-blend-mode: overlay;
-      background-size: cover;
+      background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(270deg, #1e3c72, #2a5298, #1abc9c);
+      background-size: auto, 600% 600%;
+      animation: gradientShift 12s ease infinite, fadeInDown 0.6s ease-in-out;
       color: #fff;
       padding: 2.5rem;
       text-align: center;
+      box-shadow: var(--shadow);
     }
-    header h1 {
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      margin: 0.3rem 0;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     header .links {
       margin-top: 1rem;
@@ -44,47 +46,72 @@
       margin: 0 0.75rem;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
-    .tabs {
+    header .links a:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+    nav {
       display: flex;
       justify-content: center;
       background-color: var(--dark-blue);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: var(--shadow);
     }
-    .tabs label {
-      padding: 1rem 2rem;
+    nav button {
+      background: none;
+      border: none;
+      color: #fff;
+      padding: 1.25rem 2.5rem;
       cursor: pointer;
-      color: white;
+      font-size: 1.05rem;
       font-weight: 600;
-      transition: background 0.3s ease;
+      letter-spacing: 0.5px;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
-    .tabs label:hover,
-    .tabs input:checked + label {
+    nav button:hover, nav button.active {
       background-color: var(--deep-blue);
+      transform: scale(1.05);
     }
-    .tab-content {
-      display: none;
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
+    .tab {
       background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-    input[name="tabs"] {
+      color: #2c3e50;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
       display: none;
     }
-    #tab1:checked ~ #content1,
-    #tab2:checked ~ #content2,
-    #tab3:checked ~ #content3,
-    #tab4:checked ~ #content4 {
+    .tab.active {
       display: block;
     }
-    h2 {
-      margin-top: 0;
+    h2 i {
+      margin-right: 0.5rem;
+    }
+    h2, h3 {
+      margin-bottom: 0.75rem;
     }
     ul {
       list-style-type: disc;
       margin-left: 1.5rem;
+    }
+    .project-link {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--dark-blue);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-radius: 6px;
+      padding: 0.25rem 0.5rem;
+    }
+    .project-link:hover {
+      color: var(--accent-color);
+      transform: translateX(5px);
+      background-color: rgba(26, 188, 156, 0.1);
+      box-shadow: 0 0 10px rgba(26, 188, 156, 0.25);
     }
     footer {
       text-align: center;
@@ -101,77 +128,57 @@
     <h1>Danielle Vivolo</h1>
     <p>Cybersecurity Specialist | DFIR | Compliance | Threat Detection</p>
     <p>Open to contract or remote roles</p>
-    <p>Email: <a href="mailto:danielle.vivolo@gmail.com" style="color:#fff;">danielle.vivolo@gmail.com</a> | Phone: <a href="tel:+17372356411" style="color:#fff;">(737) 235-6411</a></p>
+    <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> | Phone: <a href="tel:+17372356411">(737) 235-6411</a></p>
     <div class="links">
       <a href="https://www.linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="/Danielle_Vivolo_Resume.pdf" target="_blank"><i class="fas fa-file-download"></i> Resume</a>
+      <a href="/Danielle_Vivolo_Resume.pdf" target="_blank"><i class="fas fa-file-download"></i> Download Resume</a>
       <a href="https://github.com/dvivolo" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     </div>
   </header>
 
-  <input type="radio" name="tabs" id="tab1" checked>
-  <input type="radio" name="tabs" id="tab2">
-  <input type="radio" name="tabs" id="tab3">
-  <input type="radio" name="tabs" id="tab4">
+  <nav>
+    <button class="tab-button active" onclick="openTab(event, 'experience')">Experience</button>
+    <button class="tab-button" onclick="openTab(event, 'projects')">Projects</button>
+    <button class="tab-button" onclick="openTab(event, 'education')">Education</button>
+    <button class="tab-button" onclick="openTab(event, 'certifications')">Certifications</button>
+  </nav>
 
-  <div class="tabs">
-    <label for="tab1">Experience</label>
-    <label for="tab2">Projects</label>
-    <label for="tab3">Education</label>
-    <label for="tab4">Certifications</label>
-  </div>
+  <section id="experience" class="tab active">
+    <h2><i class="fas fa-briefcase"></i> Experience</h2>
+    <!-- Experience content here -->
+  </section>
 
-  <div id="content1" class="tab-content">
-    <h2>Experience</h2>
-    <h3>Applied Research Laboratories – Security Analyst (Feb 2025 – Present)</h3>
-    <ul>
-      <li>Performed deep packet inspection using Arkime and Wireshark.</li>
-      <li>Tuned and triaged alerts in Splunk to improve signal-to-noise.</li>
-      <li>Developed playbooks and triage guides to assist low-automation SOC operations.</li>
-      <li>Supported CMMC compliance through NIST 800-171 alignment.</li>
-    </ul>
-    <h3>Texas Legislative Council – Security Analyst (Nov 2018 – Feb 2025)</h3>
-    <ul>
-      <li>Monitored and responded to Sentinel alerts, escalating true positives.</li>
-      <li>Authored phishing and endpoint response playbooks.</li>
-      <li>Collaborated on incident resolution and audit preparation.</li>
-    </ul>
-  </div>
+  <section id="projects" class="tab">
+    <h2><i class="fas fa-folder"></i> Projects</h2>
+    <!-- Projects content here -->
+  </section>
 
-  <div id="content2" class="tab-content">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="https://github.com/dvivolo/terraform-azure-lab" target="_blank">Terraform Labs: Infrastructure as Code for Security</a></li>
-      <li><a href="https://github.com/dvivolo/k8s-lab" target="_blank">Kubernetes Security Walkthrough</a></li>
-      <li><a href="https://github.com/dvivolo/dfir-playbooks" target="_blank">DFIR Playbooks for Incident Response</a></li>
-      <li><a href="https://github.com/dvivolo/devsecops-checklist" target="_blank">DevSecOps Learning Roadmap</a></li>
-    </ul>
-  </div>
+  <section id="education" class="tab">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+    <!-- Education content here -->
+  </section>
 
-  <div id="content3" class="tab-content">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Western Governors University</strong> – M.S. Cybersecurity, 2025</li>
-      <li><strong>Westwood College</strong> – B.S. Web and Multimedia, 2008</li>
-    </ul>
-  </div>
-
-  <div id="content4" class="tab-content">
-    <h2>Certifications</h2>
-    <ul>
-      <li>CompTIA PenTest+</li>
-      <li>CompTIA CySA+</li>
-      <li>CompTIA Security+</li>
-      <li>ISC2 CC</li>
-      <li>CompTIA SecurityX (in progress – test scheduled Nov 2025)</li>
-      <li>ISACA CISM (in progress)</li>
-      <li>AZ-500 Microsoft Azure Security Technologies (studying)</li>
-    </ul>
-  </div>
+  <section id="certifications" class="tab">
+    <h2><i class="fas fa-certificate"></i> Certifications</h2>
+    <!-- Certifications content here -->
+  </section>
 
   <footer>
     &copy; 2025 Danielle Vivolo. All rights reserved.
   </footer>
+
+  <script>
+    function openTab(evt, tabId) {
+      const tabs = document.querySelectorAll('.tab');
+      const buttons = document.querySelectorAll('.tab-button');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
 
