@@ -56,19 +56,22 @@
       z-index: 10;
       box-shadow: var(--shadow);
     }
-    nav button {
-      background: none;
-      border: none;
-      color: #fff;
-      padding: 1rem 2rem;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    nav button:hover, nav button.active {
-      background-color: var(--deep-blue);
-    }
+nav button {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 1.25rem 2.5rem;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+nav button:hover, nav button.active {
+  background-color: var(--deep-blue);
+  transform: scale(1.05);
+}
+
     .tab {
       display: none;
       max-width: 1000px;
