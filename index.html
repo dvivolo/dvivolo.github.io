@@ -100,17 +100,22 @@ nav button:hover, nav button.active {
       list-style-type: disc;
       margin-left: 1.5rem;
     }
-    .project-link {
-      display: block;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-      color: var(--dark-blue);
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    .project-link:hover {
-      color: var(--accent-color);
-      transform: translateX(5px);
-    }
+.project-link {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+}
+.project-link:hover {
+  color: var(--accent-color);
+  transform: translateX(5px);
+  background-color: rgba(26, 188, 156, 0.1);
+  box-shadow: 0 0 10px rgba(26, 188, 156, 0.25);
+}
     footer {
       text-align: center;
       padding: 1.5rem;
