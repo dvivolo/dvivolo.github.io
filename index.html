@@ -49,12 +49,15 @@
       font-size: 1rem;
       color: #80cbc4;
       margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .contact-info a, .contact-info span {
       color: #4dd0e1;
       text-decoration: none;
-      margin: 0 0.5rem;
       position: relative;
     }
 
@@ -172,10 +175,37 @@
     ul {
       padding-left: 1.2rem;
     }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+        border-width: 2px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .tab-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        width: 90%;
+        text-align: center;
+      }
+
+      .tab-content {
+        padding: 1rem;
+      }
+
+      .contact-info {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
-<body>
-<!-- CONTENT REMAINS UNCHANGED -->
 <body>
   <h1>Danielle Vivolo</h1>
   <div class="contact-info">
