@@ -2,183 +2,156 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Danielle Vivolo | Cybersecurity Specialist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danielle Vivolo | Cybersecurity Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    :root {
-      --accent-color: #1abc9c;
-      --dark-blue: #2a5298;
-      --deep-blue: #1e3c72;
-      --shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    * {
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Montserrat', sans-serif;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #fdfbfb, #ebedee);
-      color: #2c3e50;
-      scroll-behavior: smooth;
+      background: #0a0a0a;
+      background-image: url('https://www.transparenttextures.com/patterns/circuit-board.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: repeat;
+      color: #f2f2f2;
+      font-family: 'Segoe UI', sans-serif;
+      animation: pulseBackground 10s infinite ease-in-out;
     }
+
+    @keyframes pulseBackground {
+      0%, 100% {
+        filter: brightness(1) opacity(1);
+      }
+      50% {
+        filter: brightness(1.05) opacity(0.95);
+      }
+    }
+
     header {
-      background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(270deg, #1e3c72, #2a5298, #1abc9c);
-      background-size: auto, 600% 600%;
-      animation: gradientShift 12s ease infinite, fadeInDown 0.6s ease-in-out;
-      color: #fff;
-      padding: 2.5rem;
       text-align: center;
-      box-shadow: var(--shadow);
+      padding: 2rem;
+      border-bottom: 1px solid #444;
     }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
     }
-    header .links {
-      margin-top: 1rem;
+
+    header p {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      color: #aaa;
     }
-    header .links a {
-      color: #fff;
-      margin: 0 0.75rem;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    header .links a:hover {
-      color: var(--accent-color);
-      transform: scale(1.1);
-    }
-    nav {
+
+    .tabs {
       display: flex;
       justify-content: center;
-      background-color: var(--dark-blue);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: var(--shadow);
+      margin-top: 1rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    nav button {
-      background: none;
-      border: none;
-      color: #fff;
-      padding: 1.25rem 2.5rem;
-      cursor: pointer;
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    nav button:hover, nav button.active {
-      background-color: var(--deep-blue);
-      transform: scale(1.05);
-    }
-    .tab {
-      background: #fff;
-      color: #2c3e50;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      padding: 2rem;
+
+    .tabs input[type="radio"] {
       display: none;
     }
-    .tab.active {
-      display: block;
-    }
-    h2 i {
-      margin-right: 0.5rem;
-    }
-    h2, h3 {
-      margin-bottom: 0.75rem;
-    }
-    ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-    }
-    .project-link {
-      display: block;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-      color: var(--dark-blue);
-      text-decoration: none;
+
+    .tabs label {
+      background-color: #1e1e1e;
+      color: #f2f2f2;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
       transition: all 0.3s ease;
-      border-radius: 6px;
-      padding: 0.25rem 0.5rem;
+      border: 1px solid #333;
     }
-    .project-link:hover {
-      color: var(--accent-color);
-      transform: translateX(5px);
-      background-color: rgba(26, 188, 156, 0.1);
-      box-shadow: 0 0 10px rgba(26, 188, 156, 0.25);
+
+    .tabs label:hover,
+    .tabs input[type="radio"]:checked + label {
+      background-color: #3e0e64;
+      border-color: #6b21a8;
     }
+
+    .tab-content {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
+      display: block;
+    }
+
+    a {
+      color: #66ccff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       text-align: center;
-      padding: 1.5rem;
-      background-color: #f0f0f0;
+      padding: 2rem;
       font-size: 0.9rem;
-      margin-top: 2rem;
-      border-top: 2px solid #ddd;
+      color: #666;
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Danielle Vivolo</h1>
-    <p>Cybersecurity Specialist | DFIR | Compliance | Threat Detection</p>
-    <p>Open to contract or remote roles</p>
-    <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> | Phone: <a href="tel:+17372356411">(737) 235-6411</a></p>
-    <div class="links">
-      <a href="https://www.linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="/Danielle_Vivolo_Resume.pdf" target="_blank"><i class="fas fa-file-download"></i> Download Resume</a>
-      <a href="https://github.com/dvivolo" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-    </div>
+    <p>Cybersecurity Analyst | Detection & Response | Compliance | DevSecOps in Progress</p>
+    <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> | Phone: 737-293-6233</p>
+    <p><a href="https://www.linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
   </header>
 
-  <nav>
-    <button class="tab-button active" onclick="openTab(event, 'experience')">Experience</button>
-    <button class="tab-button" onclick="openTab(event, 'projects')">Projects</button>
-    <button class="tab-button" onclick="openTab(event, 'education')">Education</button>
-    <button class="tab-button" onclick="openTab(event, 'certifications')">Certifications</button>
-  </nav>
+  <div class="tabs">
+    <input type="radio" name="tab" id="tab1" checked>
+    <label for="tab1"><i class="fas fa-user"></i> About</label>
 
-  <section id="experience" class="tab active">
-    <h2><i class="fas fa-briefcase"></i> Experience</h2>
-    <!-- Experience content here -->
+    <input type="radio" name="tab" id="tab2">
+    <label for="tab2"><i class="fas fa-folder-open"></i> Projects</label>
+
+    <input type="radio" name="tab" id="tab3">
+    <label for="tab3"><i class="fas fa-envelope"></i> Contact</label>
+  </div>
+
+  <section id="content1" class="tab-content">
+    <h2>About Me</h2>
+    <p>I’m a cybersecurity analyst with 4–5 years of combined academic and professional experience. I specialize in incident response, detection engineering, and compliance frameworks like NIST 800-171 and CMMC.</p>
+    <p>I’ve worked in public sector environments (federal/state), documented security workflows, and am currently leveling up in cloud and DevSecOps—actively learning Terraform, Azure, and secure pipeline practices.</p>
+    <p>I thrive in process-driven environments and enjoy bridging detection logic with analyst actionability through clear documentation and alert tuning.</p>
   </section>
 
-  <section id="projects" class="tab">
-    <h2><i class="fas fa-folder"></i> Projects</h2>
-    <!-- Projects content here -->
+  <section id="content2" class="tab-content">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>GitHub:</strong> <a href="https://github.com/daniellevivolo" target="_blank">github.com/daniellevivolo</a></li>
+      <li><strong>DFIR Playbooks:</strong> Coming soon – detection response workflows for Microsoft Sentinel</li>
+      <li><strong>Terraform Labs:</strong> Infrastructure as Code projects under development</li>
+    </ul>
   </section>
 
-  <section id="education" class="tab">
-    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-    <!-- Education content here -->
-  </section>
-
-  <section id="certifications" class="tab">
-    <h2><i class="fas fa-certificate"></i> Certifications</h2>
-    <!-- Certifications content here -->
+  <section id="content3" class="tab-content">
+    <h2>Contact</h2>
+    <p>You can reach me at <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> or connect with me on <a href="https://linkedin.com/in/daniellevivolo" target="_blank">LinkedIn</a>.</p>
   </section>
 
   <footer>
-    &copy; 2025 Danielle Vivolo. All rights reserved.
+    <p>Last updated: August 2025 — daniellevivolo.com</p>
   </footer>
-
-  <script>
-    function openTab(evt, tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      const buttons = document.querySelectorAll('.tab-button');
-
-      tabs.forEach(tab => tab.classList.remove('active'));
-      buttons.forEach(btn => btn.classList.remove('active'));
-
-      document.getElementById(tabId).classList.add('active');
-      evt.currentTarget.classList.add('active');
-    }
-  </script>
 </body>
 </html>
 
