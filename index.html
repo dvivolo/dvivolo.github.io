@@ -3,14 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tab Test</title>
+  <title>Danielle Vivolo | Cyber Resume</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #121212;
-      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0e0e0e;
+      color: #e0f7fa;
       margin: 0;
       padding: 2rem;
+    }
+
+    h2 {
+      color: #80deea;
+      border-bottom: 1px solid #004d4d;
+      padding-bottom: 0.3rem;
     }
 
     input[type="radio"] {
@@ -18,25 +24,33 @@
     }
 
     label {
-      background: #333;
-      color: #fff;
-      padding: 0.5rem 1rem;
+      background: #004d4d;
+      color: #e0f7fa;
+      padding: 0.6rem 1.2rem;
       margin-right: 1rem;
       cursor: pointer;
       border-radius: 5px;
       display: inline-block;
+      border: 1px solid #006666;
+      transition: 0.3s ease;
+    }
+
+    label:hover {
+      background: #007777;
     }
 
     input[type="radio"]:checked + label {
-      background: #666;
+      background: #00bcd4;
+      color: #000;
     }
 
     .tab-content {
       display: none;
-      padding: 1rem;
-      background: #1e1e1e;
+      padding: 1.5rem;
+      background: #1a1a1a;
       margin-top: 1rem;
-      border-radius: 5px;
+      border-radius: 6px;
+      box-shadow: 0 0 6px #004d4d;
     }
 
     #tab1:checked ~ #content1,
@@ -44,9 +58,29 @@
     #tab3:checked ~ #content3 {
       display: block;
     }
+
+    a {
+      color: #4dd0e1;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #80cbc4;
+    }
   </style>
 </head>
 <body>
+
+  <h1>Danielle Vivolo</h1>
+  <p>Cybersecurity Analyst | Detection & Response | Compliance | DevSecOps</p>
+  <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> | GitHub: <a href="https://github.com/dvivolo" target="_blank">dvivolo</a></p>
 
   <!-- TABS -->
   <input type="radio" name="tabs" id="tab1" checked>
@@ -61,18 +95,28 @@
   <!-- CONTENT -->
   <div id="content1" class="tab-content">
     <h2>About Me</h2>
-    <p>This is the About tab content.</p>
+    <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments. I specialize in incident response, detection logic, and compliance frameworks like NIST 800-171 and CMMC.</p>
+    <p>Currently expanding into cloud security and DevSecOps, focusing on Infrastructure as Code (Terraform), secure pipelines, and Microsoft Azure.</p>
   </div>
 
   <div id="content2" class="tab-content">
     <h2>Projects</h2>
-    <p>This is the Projects tab content.</p>
+    <ul>
+      <li><strong>GitHub:</strong> <a href="https://github.com/dvivolo" target="_blank">github.com/dvivolo</a></li>
+      <li><strong>DFIR Playbooks:</strong> Detection response documentation for Microsoft Sentinel</li>
+      <li><strong>Terraform Labs:</strong> Infrastructure as Code experiments</li>
+    </ul>
   </div>
 
   <div id="content3" class="tab-content">
     <h2>Contact</h2>
-    <p>This is the Contact tab content.</p>
+    <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/daniellevivolo" target="_blank">linkedin.com/in/daniellevivolo</a></p>
   </div>
+
+  <footer>
+    <p>© 2025 Danielle Vivolo — All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
