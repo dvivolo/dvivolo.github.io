@@ -43,7 +43,73 @@
       font-size: 2.5rem;
       color: #ffffff;
     }
+.contact-fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00bcd4;
+      color: #000;
+      padding: 0.8rem 1rem;
+      border-radius: 50px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00bcd4;
+      animation: pulseGlow 2s infinite;
+      z-index: 999;
+    }
 
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 10px #00bcd4; }
+      50% { box-shadow: 0 0 20px #00bcd4, 0 0 40px #00bcd4; }
+      100% { box-shadow: 0 0 10px #00bcd4; }
+    }
+
+    .contact-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-modal-content {
+      background: #1e1e1e;
+      border: 2px solid #00bcd4;
+      border-radius: 8px;
+      padding: 2rem;
+      color: #e0f7fa;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 0 20px #00bcd4;
+      position: relative;
+      animation: fadeInModal 0.4s ease-out;
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .contact-modal-content a {
+      display: block;
+      color: #4dd0e1;
+      margin: 0.5rem 0;
+      text-decoration: none;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 1.2rem;
+      color: #4dd0e1;
+      cursor: pointer;
+    }
     .contact-info {
       text-align: center;
       font-size: 1rem;
@@ -142,7 +208,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      text-shadow: 0 0 6px #00bcd4;
+      text-shadow: 0 0 3px #00bcd4;
     }
 
     h2 i {
@@ -229,7 +295,19 @@
   </style>
 </head>
 <body>
+  <button class="contact-fab" onclick="document.getElementById('contactModal').style.display='flex'">
+    <i class="fas fa-address-card"></i>
+  </button>
 
+  <div id="contactModal" class="contact-modal" onclick="this.style.display='none'">
+    <div class="contact-modal-content" onclick="event.stopPropagation()">
+      <span class="close-modal" onclick="document.getElementById('contactModal').style.display='none'">&times;</span>
+      <h3><i class="fas fa-id-badge"></i> Contact Me</h3>
+      <a href="mailto:danielle.vivolo@gmail.com"><i class="fas fa-envelope"></i> danielle.vivolo@gmail.com</a>
+      <a href="tel:7372356411"><i class="fas fa-phone"></i> (737) 235-6411</a>
+      <a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </div>
 <!-- Scroll-to-top button -->
 <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
   <i class="fas fa-arrow-up"></i>
