@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Danielle Vivolo | Cybersecurity Resume</title>
+  <title>Danielle Vivolo | Cyber Resume</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     body {
@@ -12,44 +12,28 @@
       background-image: url('https://www.transparenttextures.com/patterns/circuit-board.png');
       background-size: cover;
       background-attachment: fixed;
-      background-repeat: repeat;
       color: #f2f2f2;
       font-family: 'Segoe UI', sans-serif;
       animation: pulseBackground 10s infinite ease-in-out;
     }
 
     @keyframes pulseBackground {
-      0%, 100% {
-        filter: brightness(1) opacity(1);
-      }
-      50% {
-        filter: brightness(1.05) opacity(0.95);
-      }
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.05); }
     }
 
     header {
       text-align: center;
       padding: 2rem;
-      border-bottom: 1px solid #444;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1rem;
-      margin: 0.5rem 0;
-      color: #aaa;
+      border-bottom: 1px solid #333;
     }
 
     .tabs {
       display: flex;
       justify-content: center;
-      margin-top: 1rem;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem;
     }
 
     .tabs input[type="radio"] {
@@ -58,12 +42,11 @@
 
     .tabs label {
       background-color: #1e1e1e;
-      color: #f2f2f2;
+      border: 1px solid #444;
       padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
+      border-radius: 6px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      border: 1px solid #333;
+      transition: 0.3s;
     }
 
     .tabs label:hover,
@@ -74,21 +57,22 @@
 
     .tab-content {
       display: none;
-      padding: 2rem;
       max-width: 800px;
-      margin: 0 auto;
-      animation: fadeIn 0.6s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin: auto;
+      padding: 2rem;
     }
 
     #tab1:checked ~ #content1,
     #tab2:checked ~ #content2,
     #tab3:checked ~ #content3 {
       display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      font-size: 0.9rem;
     }
 
     a {
@@ -100,11 +84,8 @@
       text-decoration: underline;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #666;
+    h1, h2 {
+      margin: 0.5em 0;
     }
   </style>
 </head>
@@ -112,46 +93,47 @@
 <body>
   <header>
     <h1>Danielle Vivolo</h1>
-    <p>Cybersecurity Analyst | Detection & Response | Compliance | DevSecOps in Progress</p>
+    <p>Cybersecurity Analyst | Incident Response | Compliance | DevSecOps-In-Progress</p>
     <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> | Phone: 737-293-6233</p>
-    <p><a href="https://www.linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+    <p><a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
   </header>
 
   <div class="tabs">
-    <input type="radio" name="tab" id="tab1" checked>
+    <input type="radio" name="tabs" id="tab1" checked>
     <label for="tab1"><i class="fas fa-user"></i> About</label>
 
-    <input type="radio" name="tab" id="tab2">
-    <label for="tab2"><i class="fas fa-folder-open"></i> Projects</label>
+    <input type="radio" name="tabs" id="tab2">
+    <label for="tab2"><i class="fas fa-folder"></i> Projects</label>
 
-    <input type="radio" name="tab" id="tab3">
+    <input type="radio" name="tabs" id="tab3">
     <label for="tab3"><i class="fas fa-envelope"></i> Contact</label>
   </div>
 
   <section id="content1" class="tab-content">
     <h2>About Me</h2>
-    <p>I’m a cybersecurity analyst with 4–5 years of combined academic and professional experience. I specialize in incident response, detection engineering, and compliance frameworks like NIST 800-171 and CMMC.</p>
-    <p>I’ve worked in public sector environments (federal/state), documented security workflows, and am currently leveling up in cloud and DevSecOps—actively learning Terraform, Azure, and secure pipeline practices.</p>
-    <p>I thrive in process-driven environments and enjoy bridging detection logic with analyst actionability through clear documentation and alert tuning.</p>
+    <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments. I specialize in incident response, detection logic, and compliance frameworks like NIST 800-171 and CMMC.</p>
+    <p>I’m currently expanding into cloud security and DevSecOps, focusing on Infrastructure as Code (Terraform), secure pipelines, and Azure tooling. I enjoy breaking down complex detections and creating clear, actionable workflows for analysts.</p>
   </section>
 
   <section id="content2" class="tab-content">
     <h2>Projects</h2>
     <ul>
       <li><strong>GitHub:</strong> <a href="https://github.com/daniellevivolo" target="_blank">github.com/daniellevivolo</a></li>
-      <li><strong>DFIR Playbooks:</strong> Coming soon – detection response workflows for Microsoft Sentinel</li>
-      <li><strong>Terraform Labs:</strong> Infrastructure as Code projects under development</li>
+      <li><strong>DFIR Playbooks:</strong> Detection response workflow documentation for Microsoft Sentinel</li>
+      <li><strong>Terraform Labs:</strong> Hands-on Infrastructure as Code experiments</li>
     </ul>
   </section>
 
   <section id="content3" class="tab-content">
     <h2>Contact</h2>
-    <p>You can reach me at <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> or connect with me on <a href="https://linkedin.com/in/daniellevivolo" target="_blank">LinkedIn</a>.</p>
+    <p>Email: <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/daniellevivolo" target="_blank">linkedin.com/in/daniellevivolo</a></p>
   </section>
 
   <footer>
-    <p>Last updated: August 2025 — daniellevivolo.com</p>
+    <p>© 2025 Danielle Vivolo — All rights reserved.</p>
   </footer>
 </body>
 </html>
+
 
