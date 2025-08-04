@@ -37,6 +37,14 @@
       text-decoration: none;
       margin: 0 0.5rem;
     }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
 
     input[type="radio"] {
       display: none;
@@ -128,6 +136,7 @@
   </div>
 
   <!-- TABS MUST BE SIBLINGS TO CONTENT -->
+<div class="tabs">
   <input type="radio" name="tabs" id="tab1" checked>
   <label for="tab1">About</label>
 
@@ -139,8 +148,7 @@
 
   <input type="radio" name="tabs" id="tab4">
   <label for="tab4">Projects</label>
-
-  <div id="content1" class="tab-content">
+  
     <h2>About Me</h2>
     <div class="section-icon"><i class="fas fa-user"></i></div>
     <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments. I specialize in incident response, detection logic, and compliance frameworks like NIST 800-171 and CMMC.</p>
