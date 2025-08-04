@@ -82,10 +82,10 @@ nav button:hover, nav button.active {
 }
 
 .tab {
+  display: none;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.4s ease, transform 0.4s ease;
-  display: none;
 }
 
 .tab.show {
@@ -93,6 +93,7 @@ nav button:hover, nav button.active {
   opacity: 1;
   transform: translateY(0);
 }
+
     h2::before {
       content: attr(data-icon);
       margin-right: 0.5rem;
@@ -227,54 +228,30 @@ header .links a:hover {
 
   buttons.forEach((btn, index) => {
     btn.addEventListener('click', () => {
-      // Reset all tabs and buttons
-      buttons.forEach(b => b.classList.remove('active'));
-      tabs.forEach(t => {
-        t.classList.remove('show');
-        setTimeout(() => t.style.display = 'none', 400); // match CSS transition duration
-      });
-
-      // Activate selected tab
-      btn.classList.add('active');
-      setTimeout(() => {
-        tabs[index].style.display = 'block';
-        setTimeout(() => tabs[index].classList.add('show'), 10);
-      }, 10);
-    });
-  });
-
-  // Initialize first tab
-  tabs[0].style.display = 'block';
-  tabs[0].classList.add('show');
-
-  AOS.init({ duration: 1000, once: true });
-
-  const buttons = document.querySelectorAll('.tab-button');
-  const tabs = document.querySelectorAll('.tab');
-
-  buttons.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
+      // Update button state
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      tabs.forEach((t, i) => {
+      // Transition tab content
+      tabs.forEach((tab, i) => {
         if (i === index) {
-          t.style.display = 'block';
-          // Wait briefly to apply show for transition
-          setTimeout(() => t.classList.add('show'), 10);
+          tab.style.display = 'block';
+          setTimeout(() => tab.classList.add('show'), 10);
         } else {
-          t.classList.remove('show');
-          // Delay hiding until transition completes
-          setTimeout(() => t.style.display = 'none', 400);
+          tab.classList.remove('show');
+          setTimeout(() => {
+            tab.style.display = 'none';
+          }, 400); // match the transition duration
         }
       });
     });
   });
 
-  // Initial tab
+  // Initialize first tab
   tabs[0].style.display = 'block';
   setTimeout(() => tabs[0].classList.add('show'), 10);
 </script>
+
 
 </body>
 </html>
