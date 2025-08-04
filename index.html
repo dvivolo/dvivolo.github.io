@@ -75,26 +75,36 @@ nav button {
   letter-spacing: 0.5px;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+    
 nav button:hover, nav button.active {
   background-color: var(--deep-blue);
   transform: scale(1.05);
 }
 
-    .tab {
-      display: none;
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      animation: fadeIn 0.6s ease-in-out;
-      transform: scale(0.98);
-    }
-    .tab.active {
-      display: block;
-      transform: scale(1);
-    }
+.tab {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.tab.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  position: static;
+}
+
     h2::before {
       content: attr(data-icon);
       margin-right: 0.5rem;
@@ -160,7 +170,7 @@ header .links a:hover {
 
     <div class="links">
       <a href="https://www.linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="/Danielle_Vivolo_Resume.pdf" target="_blank"><i class="fas fa-file-download"></i> Download Resume</a>
+      <a href="/Danielle_Vivolo_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-download"></i> Download Resume</a>
       <a href="https://github.com/dvivolo" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     </div>
   </header>
@@ -238,6 +248,21 @@ header .links a:hover {
         tabs[index].classList.add('active');
       });
     });
+
+    const buttons = document.querySelectorAll('.tab-button');
+const tabs = document.querySelectorAll('.tab');
+
+buttons.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+
+    btn.classList.add('active');
+    setTimeout(() => {
+      tabs[index].classList.add('active');
+    }, 50); // allows CSS transition to trigger smoothly
+  });
+});
   </script>
 </body>
 </html>
