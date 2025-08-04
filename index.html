@@ -8,24 +8,32 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0e0e0e;
+      background: #0e0e0e;
       color: #e0f7fa;
       margin: 0;
       padding: 2rem;
-      background-image: 
-        repeating-linear-gradient(60deg, rgba(0,255,255,0.05) 0, transparent 1px, transparent 20px),
-        repeating-linear-gradient(120deg, rgba(0,255,255,0.05) 0, transparent 1px, transparent 20px);
-      background-size: 40px 40px;
-      animation: pulseGlow 8s infinite;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    @keyframes pulseGlow {
-      0%, 100% {
-        background-position: 0 0, 0 0;
-      }
-      50% {
-        background-position: 10px 10px, -10px -10px;
-      }
+    /* Animated Hex Grid Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(#00fff7cc 2%, transparent 3%) center center / 60px 105px repeat;
+      background-blend-mode: overlay;
+      opacity: 0.08;
+      z-index: -1;
+      animation: pulseHex 8s ease-in-out infinite;
+    }
+
+    @keyframes pulseHex {
+      0%, 100% { opacity: 0.06; }
+      50% { opacity: 0.12; }
     }
 
     h1 {
@@ -70,16 +78,19 @@
       cursor: pointer;
       border-radius: 5px;
       border: 1px solid #006666;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 4px transparent;
     }
 
     label:hover {
       background: #007777;
+      box-shadow: 0 0 8px #00e5ff, 0 0 12px #00e5ff inset;
     }
 
     input[type="radio"]:checked + label {
       background: #00bcd4;
       color: #000;
+      box-shadow: 0 0 12px #00e5ff, 0 0 16px #00e5ff inset;
     }
 
     .tab-content {
@@ -88,7 +99,7 @@
       padding: 2rem;
       border-radius: 8px;
       text-align: left;
-      box-shadow: 0 0 6px #004d4d;
+      box-shadow: 0 0 10px #004d4d;
       max-width: 900px;
       margin: 0 auto 2rem;
     }
@@ -109,10 +120,18 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      text-shadow: 0 0 6px #00bcd4;
     }
 
     h2 i {
       color: #4dd0e1;
+      animation: iconPulse 2s infinite;
+      filter: drop-shadow(0 0 4px #00e5ff);
+    }
+
+    @keyframes iconPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
 
     a {
@@ -136,110 +155,7 @@
     }
   </style>
 </head>
-
 <body>
-  <h1>Danielle Vivolo</h1>
-  <div class="contact-info">
-    <i class="fas fa-envelope"></i> <a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a> |
-    <i class="fas fa-phone"></i> (737) 235-6411 |
-    <i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/daniellevivolo" target="_blank">LinkedIn</a>
-  </div>
-
-  <!-- TABS - Inputs must come first -->
-  <input type="radio" name="tabs" id="tab1" checked>
-  <input type="radio" name="tabs" id="tab2">
-  <input type="radio" name="tabs" id="tab3">
-  <input type="radio" name="tabs" id="tab4">
-  <input type="radio" name="tabs" id="tab5">
-
-  <!-- TABS - Visible buttons wrapped and styled -->
-  <div class="tab-buttons">
-    <label for="tab1">About</label>
-    <label for="tab2">Experience</label>
-    <label for="tab3">Certifications</label>
-    <label for="tab4">Projects</label>
-    <label for="tab5">Skills</label>
-  </div>
-
-  <div id="content1" class="tab-content">
-    <h2><i class="fas fa-user"></i> About Me</h2>
-    <p>I began my career managing technical teams in mobile device support, eventually transitioning into mobile app project coordination. That path led me into infrastructure and sysadmin roles, and ultimately into cybersecurity—where I discovered my strength in analysis, documentation, and building secure operational workflows.</p>
-
-    <h3 style="color:#4dd0e1;"><i class="fas fa-star"></i> Core Strengths:</h3>
-    <ul>
-      <li><i class="fas fa-shield-alt"></i> <strong>DFIR & SOC Analysis:</strong> Skilled in incident triage, threat detection, and alert tuning</li>
-      <li><i class="fas fa-book"></i> <strong>Documentation & Playbooks:</strong> Known for creating clear, actionable detection response guides and workflow documentation</li>
-      <li><i class="fas fa-lock"></i> <strong>Compliance & Audits:</strong> Experienced with NIST 800-171, CMMC, and vulnerability remediation tracking</li>
-      <li><i class="fas fa-cogs"></i> <strong>Process Design:</strong> Able to streamline investigations in low-automation, tool-fragmented environments</li>
-    </ul>
-
-    <h3 style="color:#4dd0e1;"><i class="fas fa-bolt"></i> Current Focus:</h3>
-    <ul>
-      <li>Infrastructure as Code (Terraform), secure Azure architecture, and DevSecOps pipeline improvements</li>
-      <li>Hands-on Kubernetes and Terraform module development in lab environments</li>
-    </ul>
-  </div>
-
-  <div id="content2" class="tab-content">
-    <h2><i class="fas fa-briefcase"></i> Experience</h2>
-    <ul>
-      <li><strong>Cybersecurity Analyst</strong> – Applied Research Labs (2025–Present)
-        <ul>
-          <li>Support NIST and CMMC compliance efforts in a hybrid lab environment</li>
-          <li>Analyze network traffic and triage security alerts across multiple platforms (Arkime, Splunk, Wireshark)</li>
-          <li>Create and refine detection logic, playbooks, and triage guidance for Sentinel</li>
-          <li>Collaborate with researchers and engineers on security improvements</li>
-        </ul>
-      </li>
-      <li><strong>Security Analyst</strong> – Texas Legislative Council (2018–2025)
-        <ul>
-          <li>Investigated and escalated alerts using Fidelis, Splunk (read-only), and ServiceDesk</li>
-          <li>Drafted early-stage alert documentation and analyst triage workflows</li>
-          <li>Supported vulnerability management and incident tracking efforts</li>
-          <li>Provided analyst coverage during key legislative sessions and cybersecurity drills</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div id="content3" class="tab-content">
-    <h2><i class="fas fa-graduation-cap"></i>Certifications</h2>
-    <ul>
-      <li><strong>M.S. Cybersecurity</strong> – Western Governors University (2025)</li>
-      <li><strong>B.S. Web and Multimedia</strong> – Westwood College</li>
-      <li><strong>Current Certifications</strong> – CompTIA Security+, CompTIA CySA+, CompTIA PenTest+, ISC2 CC</li>
-      <li><strong>Studying:</strong> SecurityX (CompTIA CASP equivalent), ISACA CISM, AZ-500 (Azure Security)</li>
-    </ul>
-  </div>
-
-  <div id="content4" class="tab-content">
-    <h2><i class="fas fa-gears"></i> Projects <span style="font-size: 0.9rem; font-weight: normal;">(Work in Progress)</span></h2>
-    <ul>
-      <li><i class="fas fa-book"></i> <strong>DFIR Playbooks:</strong> Detection response workflow documentation for Microsoft Sentinel (focused on triage logic, contextual enrichment, and analyst actionability)</li>
-      <li><i class="fas fa-server"></i> <strong>Terraform Labs:</strong> Infrastructure as Code projects emphasizing secure Azure architecture and role-based access control (RBAC)</li>
-      <li><i class="fas fa-network-wired"></i> <strong>Kubernetes Labs:</strong> Hands-on learning with Kubernetes deployments, Terraform modules, and secure cluster provisioning (in progress)</li>
-    </ul>
-  </div>
-
-  <div id="content5" class="tab-content">
-    <h2><i class="fas fa-tools"></i> Skills</h2>
-    <h3 style="color:#4dd0e1;"><i class="fas fa-terminal"></i> Technical:</h3>
-    <ul>
-      <li><i class="fas fa-shield-alt"></i> SOC Operations, Threat Detection, Alert Tuning, DFIR</li>
-      <li><i class="fas fa-cogs"></i> Microsoft Sentinel, Splunk (read-only), Arkime, Wireshark, ServiceDesk</li>
-      <li><i class="fas fa-cloud"></i> Azure Security (RBAC, Identity, Defender), Infrastructure as Code (Terraform)</li>
-      <li><i class="fas fa-code"></i> PowerShell, Markdown, YAML, basic Python</li>
-    </ul>
-    <h3 style="color:#4dd0e1;"><i class="fas fa-user-check"></i> Soft Skills:</h3>
-    <ul>
-      <li><i class="fas fa-book"></i> Strong documentation writer: playbooks, workflows, triage guides</li>
-      <li><i class="fas fa-users-cog"></i> Process-driven with a knack for streamlining analyst workflows</li>
-      <li><i class="fas fa-project-diagram"></i> Cross-team communicator and trusted compliance partner</li>
-    </ul>
-  </div>
-
-  <footer>
-    <p>© 2025 Danielle Vivolo — All rights reserved.</p>
-  </footer>
+  <!-- Your existing content goes here -->
 </body>
 </html>
