@@ -77,23 +77,19 @@
       background-color: var(--deep-blue);
       transform: scale(1.05);
     }
-    .tab {
-      background: #fff;
-      color: #2c3e50;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      padding: 2rem;
-      display: none;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    .tab.active {
-  display: block;
+.tab {
+  background: #fff;
+  color: #2c3e50;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 2rem;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
     .tab.show {
+      display: block;
       opacity: 1;
-      transform: translateY(0);
     }
     h2::before {
       content: attr(data-icon);
@@ -218,37 +214,36 @@
     &copy; 2025 Danielle Vivolo. All rights reserved.
   </footer>
 
- <script>
+<script>
   const buttons = document.querySelectorAll('.tab-button');
   const tabs = document.querySelectorAll('.tab');
 
   buttons.forEach((btn, index) => {
     btn.addEventListener('click', () => {
-      // Reset all buttons and tabs
+      // Update active button
       buttons.forEach(b => b.classList.remove('active'));
-      tabs.forEach(tab => {
-        tab.classList.remove('show');
-        tab.classList.remove('active');
-      });
-
-      // Activate current tab button
       btn.classList.add('active');
 
-      // Show the selected tab with a slight delay to allow transition
-      const tabToShow = tabs[index];
-      tabToShow.classList.add('active'); // triggers display: block
-      setTimeout(() => {
-        tabToShow.classList.add('show'); // triggers animation
-      }, 10);
+      // Handle tab transitions
+      tabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.style.display = 'block';
+          setTimeout(() => tab.classList.add('show'), 10);
+        } else {
+          tab.classList.remove('show');
+          setTimeout(() => {
+            tab.style.display = 'none';
+          }, 400); // matches CSS transition time
+        }
+      });
     });
   });
 
-  // Init first tab on page load
-  tabs[0].classList.add('active');
-  setTimeout(() => {
-    tabs[0].classList.add('show');
-  }, 10);
+  // Show the first tab by default
+  tabs[0].style.display = 'block';
+  setTimeout(() => tabs[0].classList.add('show'), 10);
 </script>
+
 </body>
 </html>
 
