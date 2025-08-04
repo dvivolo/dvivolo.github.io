@@ -20,6 +20,19 @@
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+    header .links {
+      margin-top: 1rem;
+    }
+    header .links a {
+      color: #fff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    header .links a:hover {
+      color: #1abc9c;
+    }
     nav {
       display: flex;
       justify-content: center;
@@ -71,6 +84,10 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .project-link {
+      display: block;
+      margin-bottom: 0.75rem;
+    }
   </style>
 </head>
 <body>
@@ -78,6 +95,11 @@
     <h1>Danielle Vivolo</h1>
     <p>Cybersecurity Analyst | Incident Response | Compliance | Risk Management</p>
     <p>Email: danielle.vivolo@gmail.com | Location: Coupland, TX | Phone: 737-293-6233</p>
+    <div class="links">
+      <a href="https://linkedin.com/in/daniellevivolo" target="_blank">LinkedIn</a>
+      <a href="https://github.com/daniellevivolo" target="_blank">GitHub</a>
+      <a href="Danielle_Vivolo_Resume.pdf" download>Download Resume (PDF)</a>
+    </div>
   </header>
 
   <nav>
@@ -85,6 +107,7 @@
     <button class="tablink" onclick="openTab('experience')">Experience</button>
     <button class="tablink" onclick="openTab('education')">Certifications & Education</button>
     <button class="tablink" onclick="openTab('skills')">Skills</button>
+    <button class="tablink" onclick="openTab('projects')">Projects</button>
   </nav>
 
   <div id="about" class="tab active">
@@ -111,7 +134,12 @@
     <ul>
       <li>M.S. Cybersecurity – Western Governors University (2025)</li>
       <li>B.S. Web and Multimedia – Westwood College</li>
-      <li>CompTIA Security+ (in progress: SecurityX certification)</li>
+      <li>CompTIA Security+ 
+      <li>CompTIA PenTest+ 
+      <li>CompTIA CySA+</li>
+      <li>ISC2 CC 
+      <li>CompTIA SecurityX (In Progress)</li>
+      <li>ISACA CISM (In Progress)</li>
     </ul>
   </div>
 
@@ -124,6 +152,13 @@
       <li>Packet Analysis (Wireshark, Arkime)</li>
       <li>PowerShell scripting, Terraform (learning)</li>
     </ul>
+  </div>
+
+  <div id="projects" class="tab">
+    <h2>Highlighted Projects</h2>
+    <a class="project-link" href="https://github.com/daniellevivolo/dfir-playbooks" target="_blank">DFIR Playbooks – Response & Workflow Guides</a>
+    <a class="project-link" href="https://github.com/daniellevivolo/terraform-labs" target="_blank">Terraform Labs – Infrastructure as Code Experiments</a>
+    <a class="project-link" href="https://github.com/daniellevivolo/tryhackme-writeups" target="_blank">TryHackMe Writeups – Security Labs & Challenges</a>
   </div>
 
   <footer>
@@ -140,5 +175,8 @@
       event.currentTarget.classList.add('active');
     }
   </script>
+</body>
+</html>
+
 </body>
 </html>
