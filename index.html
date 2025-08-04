@@ -83,28 +83,16 @@ nav button:hover, nav button.active {
 
 .tab {
   opacity: 0;
-  visibility: hidden;
   transform: translateY(10px);
   transition: opacity 0.4s ease, transform 0.4s ease;
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  position: absolute;
-  width: 100%;
-  left: 0;
-  right: 0;
+  display: none;
 }
 
-.tab.active {
+.tab.show {
+  display: block;
   opacity: 1;
-  visibility: visible;
   transform: translateY(0);
-  position: static;
 }
-
     h2::before {
       content: attr(data-icon);
       margin-right: 0.5rem;
@@ -234,35 +222,35 @@ header .links a:hover {
     &copy; 2025 Danielle Vivolo. All rights reserved.
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
 
-    const buttons = document.querySelectorAll('.tab-button');
-    const tabs = document.querySelectorAll('.tab');
-    buttons.forEach((btn, index) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        tabs.forEach(t => t.classList.remove('active'));
-        btn.classList.add('active');
-        tabs[index].classList.add('active');
+  const buttons = document.querySelectorAll('.tab-button');
+  const tabs = document.querySelectorAll('.tab');
+
+  buttons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      // Reset all tabs and buttons
+      buttons.forEach(b => b.classList.remove('active'));
+      tabs.forEach(t => {
+        t.classList.remove('show');
+        setTimeout(() => t.style.display = 'none', 400); // match CSS transition duration
       });
+
+      // Activate selected tab
+      btn.classList.add('active');
+      setTimeout(() => {
+        tabs[index].style.display = 'block';
+        setTimeout(() => tabs[index].classList.add('show'), 10);
+      }, 10);
     });
-
-    const buttons = document.querySelectorAll('.tab-button');
-const tabs = document.querySelectorAll('.tab');
-
-buttons.forEach((btn, index) => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    tabs.forEach(t => t.classList.remove('active'));
-
-    btn.classList.add('active');
-    setTimeout(() => {
-      tabs[index].classList.add('active');
-    }, 50); // allows CSS transition to trigger smoothly
   });
-});
-  </script>
+
+  // Initialize first tab
+  tabs[0].style.display = 'block';
+  tabs[0].classList.add('show');
+</script>
+
 </body>
 </html>
