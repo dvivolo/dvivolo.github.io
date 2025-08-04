@@ -293,7 +293,7 @@
     /* Scroll-to-top button */
 #scrollTopBtn {
   position: fixed;
-  bottom: 20px;
+  bottom: 80px; /* was 20px — move it up above the lower-left button */
   left: 20px;
   display: none;
   background-color: #00bcd4;
@@ -304,7 +304,7 @@
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 0 10px #00bcd4;
-  z-index: 1001; /* ensures it's above the modal (which is at 1000) */
+  z-index: 1001;
 }
 #scrollTopBtn:hover {
   background-color: #0097a7;
