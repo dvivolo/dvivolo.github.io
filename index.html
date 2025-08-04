@@ -82,18 +82,21 @@ nav button:hover, nav button.active {
 }
 
 .tab {
-  display: none;
   opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
   transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s, height 0.4s ease;
 }
 
 .tab.show {
-  display: block;
   opacity: 1;
+  visibility: visible;
+  height: auto;
   transform: translateY(0);
+  overflow: visible;
 }
-
     h2::before {
       content: attr(data-icon);
       margin-right: 0.5rem;
