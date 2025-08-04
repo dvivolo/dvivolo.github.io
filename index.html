@@ -48,14 +48,25 @@
       margin-bottom: 2rem;
     }
 
-    .contact-info a {
+    .contact-info a, .contact-info span {
       color: #4dd0e1;
       text-decoration: none;
       margin: 0 0.5rem;
+      position: relative;
     }
 
     .contact-info i {
       margin-right: 6px;
+      animation: iconGlow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes iconGlow {
+      from {
+        text-shadow: 0 0 5px #00e5ff, 0 0 10px #00e5ff, 0 0 15px #00e5ff;
+      }
+      to {
+        text-shadow: 0 0 10px #4dd0e1, 0 0 15px #4dd0e1, 0 0 20px #4dd0e1;
+      }
     }
 
     .tab-buttons {
@@ -157,11 +168,10 @@
 <body>
   <h1>Danielle Vivolo</h1>
   <div class="contact-info">
-    <a href="mailto:danielle.vivolo@gmail.com"><i class="fas fa-envelope"></i>danielle.vivolo@gmail.com</a>
-    | <span><i class="fas fa-phone"></i>(737) 235-6411</span>
-    | <a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+    <a href="mailto:danielle.vivolo@gmail.com"><i class="fas fa-envelope"></i>danielle.vivolo@gmail.com</a> |
+    <span><i class="fas fa-phone"></i>(737) 235-6411</span> |
+    <a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
   </div>
-
   <!-- TABS - Inputs must come first -->
   <input type="radio" name="tabs" id="tab1" checked>
   <input type="radio" name="tabs" id="tab2">
