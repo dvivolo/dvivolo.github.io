@@ -4,42 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Danielle Vivolo | Cybersecurity Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <style>
+    :root {
+      --accent-color: #1abc9c;
+      --dark-blue: #2a5298;
+      --deep-blue: #1e3c72;
+      --shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
       color: #2c3e50;
       scroll-behavior: smooth;
+      transition: background-color 0.5s ease;
     }
     header {
-      background: linear-gradient(135deg, #2c3e50, #34495e);
+      background: linear-gradient(135deg, var(--deep-blue), var(--dark-blue));
       color: #fff;
       padding: 2.5rem;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
+      animation: fadeInDown 0.6s ease-in-out;
     }
     header .links {
       margin-top: 1rem;
     }
     header .links a {
       color: #fff;
-      margin: 0 0.5rem;
+      margin: 0 0.75rem;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
     header .links a:hover {
-      color: #1abc9c;
+      color: var(--accent-color);
+      transform: scale(1.1);
     }
     nav {
       display: flex;
       justify-content: center;
-      background-color: #34495e;
+      background-color: var(--dark-blue);
       position: sticky;
       top: 0;
       z-index: 10;
+      box-shadow: var(--shadow);
     }
     nav button {
       background: none;
@@ -48,10 +64,11 @@
       padding: 1rem 2rem;
       cursor: pointer;
       font-size: 1rem;
+      font-weight: bold;
       transition: background 0.3s ease;
     }
     nav button:hover, nav button.active {
-      background-color: #2c3e50;
+      background-color: var(--deep-blue);
     }
     .tab {
       display: none;
@@ -59,12 +76,14 @@
       margin: 2rem auto;
       padding: 2rem;
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      animation: fadeIn 0.4s ease-in-out;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.6s ease-in-out;
+      transform: scale(0.98);
     }
     .tab.active {
       display: block;
+      transform: scale(1);
     }
     h2, h3 {
       margin-bottom: 0.75rem;
@@ -73,110 +92,49 @@
       list-style-type: disc;
       margin-left: 1.5rem;
     }
+    .project-link {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--dark-blue);
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .project-link:hover {
+      color: var(--accent-color);
+      transform: translateX(5px);
+    }
     footer {
       text-align: center;
       padding: 1.5rem;
-      background-color: #eee;
+      background-color: #f0f0f0;
       font-size: 0.9rem;
       margin-top: 2rem;
+      border-top: 2px solid #ddd;
+      animation: fadeIn 1s ease-in;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .project-link {
-      display: block;
-      margin-bottom: 0.75rem;
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .aos-init[data-aos] {
+      opacity: 0;
+      transition-property: transform, opacity;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Danielle Vivolo</h1>
-    <p>Cybersecurity Analyst | Incident Response | Compliance | Risk Management</p>
-    <p>Email: danielle.vivolo@gmail.com | Location: Coupland, TX | Phone:‪(737) 235-6411‬</p>
-    <div class="links">
-      <a href="https://linkedin.com/in/daniellevivolo" target="_blank">LinkedIn</a>
-      <a href="https://github.com/dvivolo" target="_blank">GitHub</a>
-      <a href="Danielle_Vivolo_Resume.pdf" download>Download Resume (PDF)</a>
-    </div>
-  </header>
-
-  <nav>
-    <button class="tablink active" onclick="openTab('about')">About Me</button>
-    <button class="tablink" onclick="openTab('experience')">Experience</button>
-    <button class="tablink" onclick="openTab('education')">Certifications & Education</button>
-    <button class="tablink" onclick="openTab('skills')">Skills</button>
-    <button class="tablink" onclick="openTab('projects')">Projects</button>
-  </nav>
-
-  <div id="about" class="tab active">
-    <h2>About Me</h2>
-    <p>Cybersecurity analyst with 5+ years of combined experience across security operations, compliance, and threat detection. Skilled in SIEM tuning, triage documentation, and improving alert workflows. Currently expanding into DevSecOps and cloud security.</p>
-  </div>
-
-  <div id="experience" class="tab">
-    <h2>Professional Experience</h2>
-    <h3>Security Analyst – Applied Research Laboratories, UT Austin (2025–Present)</h3>
-    <ul>
-      <li>Conducted packet analysis and detection triage using Arkime, Splunk, and Wireshark</li>
-      <li>Identified alert workflow gaps and created triage documentation to improve SOC efficiency</li>
-    </ul>
-    <h3>Security Analyst – Texas Legislative Council (2018–2025)</h3>
-    <ul>
-      <li>Led security operations monitoring and incident response for legislative systems</li>
-      <li>Contributed to compliance initiatives for NIST 800-171 and internal security policy enforcement</li>
-    </ul>
-  </div>
-
-  <div id="education" class="tab">
-    <h2>Certifications & Education</h2>
-    <ul>
-      <li>M.S. Cybersecurity – Western Governors University (2025)</li>
-      <li>B.S. Web and Multimedia – Westwood College</li>
-      <li>CompTIA Security+ 
-      <li>CompTIA PenTest+ 
-      <li>CompTIA CySA+</li>
-      <li>ISC2 CC 
-      <li>CompTIA SecurityX (In Progress)</li>
-      <li>ISACA CISM (In Progress)</li>
-    </ul>
-  </div>
-
-  <div id="skills" class="tab">
-    <h2>Skills</h2>
-    <ul>
-      <li>Security Operations & SIEM (Sentinel, Splunk)</li>
-      <li>Incident Response & Detection Engineering</li>
-      <li>Compliance Frameworks (NIST 800-171, CMMC)</li>
-      <li>Packet Analysis (Wireshark, Arkime)</li>
-      <li>PowerShell scripting, Terraform (learning)</li>
-    </ul>
-  </div>
-
-  <div id="projects" class="tab">
-    <h2>Highlighted Projects</h2>
-    <a class="project-link" href="https://github.com/dvivolo/dfir-playbooks" target="_blank">DFIR Playbooks – Response & Workflow Guides</a>
-    <a class="project-link" href="https://github.com/dvivolo/terraform-azure-lab" target="_blank">Terraform Labs – Infrastructure as Code Experiments</a>
-    <a class="project-link" href="https://github.com/dvivolo/k8s-lab" target="_blank">Kubernetes Labs</a>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Danielle Vivolo. All rights reserved.</p>
-  </footer>
-
+  <!-- Add your body content and initialize AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    function openTab(tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      const links = document.querySelectorAll('.tablink');
-      tabs.forEach(tab => tab.classList.remove('active'));
-      links.forEach(link => link.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      event.currentTarget.classList.add('active');
-    }
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
   </script>
 </body>
 </html>
 
-</body>
-</html>
