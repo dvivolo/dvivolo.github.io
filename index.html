@@ -1,587 +1,306 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Danielle Vivolo | Cyber Resume</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Danielle Vivolo's cybersecurity experience and voice recording portfolio.">
+  <title>Danielle Vivolo | Cybersecurity & Voice</title>
   <style>
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0e0e0e;
-  color: #e0f7fa;
-  margin: 0;
-  padding: 2rem;
-  overflow-x: hidden;
-  position: relative;
-  border: 3px solid #00e5ff;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff inset;
-}
-
-/* Glowing animated cyber grid overlay */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2' height='2' fill='%2300ffff'/%3E%3Crect x='20' width='2' height='2' fill='%2300ffff'/%3E%3Crect y='20' width='2' height='2' fill='%2300ffff'/%3E%3Crect x='20' y='20' width='2' height='2' fill='%2300ffff'/%3E%3C/svg%3E");
-  background-size: 40px 40px;
-  background-repeat: repeat;
-  opacity: 0.15;
-  z-index: -1;
-  pointer-events: none;
-  animation: backgroundPulse 12s ease-in-out infinite;
-}
-
-@keyframes backgroundPulse {
-  0%, 100% {
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(1.2);
-  }
-}
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: #ffffff;
-    }
-.contact-fab {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #00bcd4;
-      color: #000;
-      padding: 0.8rem 1rem;
-      border-radius: 50px;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 0 10px #00bcd4;
-      animation: pulseGlow 2s infinite;
-      z-index: 999;
+    :root {
+      --ink: #f5f7fb;
+      --muted: #aeb8c8;
+      --bg: #090c12;
+      --panel: rgba(18, 23, 33, .88);
+      --line: rgba(255,255,255,.12);
+      --cyan: #63e6e2;
+      --cyan-dark: #0b888c;
+      --amber: #ffc46b;
+      --amber-dark: #a45c18;
+      --radius: 24px;
+      --shadow: 0 28px 80px rgba(0,0,0,.42);
     }
 
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 10px #00bcd4; }
-      50% { box-shadow: 0 0 20px #00bcd4, 0 0 40px #00bcd4; }
-      100% { box-shadow: 0 0 10px #00bcd4; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 12%, rgba(32, 206, 207, .13), transparent 30rem),
+        radial-gradient(circle at 90% 24%, rgba(255, 162, 65, .12), transparent 28rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
     }
+    a { color: inherit; }
+    button, a, audio { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 
-    .contact-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .contact-modal-content {
-      background: #1e1e1e;
-      border: 2px solid #00bcd4;
-      border-radius: 8px;
-      padding: 2rem;
-      color: #e0f7fa;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 0 20px #00bcd4;
-      position: relative;
-      animation: fadeInModal 0.4s ease-out;
-    }
-
-    @keyframes fadeInModal {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .contact-modal-content a {
-      display: block;
-      color: #4dd0e1;
-      margin: 0.5rem 0;
-      text-decoration: none;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 1.2rem;
-      color: #4dd0e1;
-      cursor: pointer;
-    }
-    .resume-fab {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: #00bcd4;
-  color: #000;
-  padding: 0.8rem 1rem;
-  border-radius: 50px;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 0 10px #00bcd4;
-  animation: pulseGlow 2s infinite;
-  z-index: 999;
-}
-
-.resume-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.resume-modal-content {
-  background: #1e1e1e;
-  border: 2px solid #00bcd4;
-  border-radius: 8px;
-  padding: 2rem;
-  color: #e0f7fa;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 0 20px #00bcd4;
-  position: relative;
-  animation: fadeInModal 0.4s ease-out;
-}
-
-.resume-modal-content a {
-  display: inline-block;
-  color: #4dd0e1;
-  margin-top: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.resume-modal-content a:hover {
-  text-decoration: underline;
-}
-    .contact-info {
-      text-align: center;
-      font-size: 1rem;
-      color: #80cbc4;
-      margin-bottom: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .contact-info a, .contact-info span {
-      color: #4dd0e1;
-      text-decoration: none;
-      position: relative;
-    }
-
-    .contact-info i {
-      margin-right: 6px;
-      animation: iconGlow 2.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes iconGlow {
-      from {
-        text-shadow: 0 0 3px #00e5ff, 0 0 5px #00e5ff;
-      }
-      to {
-        text-shadow: 0 0 6px #4dd0e1, 0 0 8px #4dd0e1;
-      }
-    }
-
-    .tab-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-
-    input[type="radio"] {
-      display: none;
-    }
-
-    label {
-      background: #004d4d;
-      color: #e0f7fa;
-      padding: 0.6rem 1.2rem;
-      cursor: pointer;
-      border-radius: 5px;
-      border: 1px solid #006666;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 4px transparent;
-    }
-
-    label:hover {
-      background: #007777;
-      box-shadow: 0 0 8px #00e5ff, 0 0 12px #00e5ff inset;
-    }
-    @keyframes pulse-glow {
-      0% {
-        box-shadow: 0 0 6px rgba(0, 184, 184, 0.4);
-      }
-      50% {
-        box-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
-    }
-      100% {
-        box-shadow: 0 0 6px rgba(0, 184, 184, 0.4);
-    }
-}
-
-  .profile-pic {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
-    input[type="radio"]:checked + label {
-      background: #00bcd4;
-      color: #000;
-      box-shadow: 0 0 12px #00e5ff, 0 0 16px #00e5ff inset;
-    }
-
-    .tab-content {
-      display: none;
-      background: #1a1a1a;
-      padding: 2rem;
-      border-radius: 8px;
-      text-align: left;
-      box-shadow: 0 0 20px #00e5ff;
-      max-width: 900px;
-      margin: 0 auto 2rem;
-      animation: fadeInTab 0.5s ease-in-out;
-    }
-
-    @keyframes fadeInTab {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    #tab1:checked ~ #content1,
-    #tab2:checked ~ #content2,
-    #tab3:checked ~ #content3,
-    #tab4:checked ~ #content4,
-    #tab5:checked ~ #content5 {
-      display: block;
-    }
-
-    h2 {
-      color: #80deea;
-      border-bottom: 1px solid #004d4d;
-      padding-bottom: 0.3rem;
-      margin-top: 0;
+    .topbar {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      text-shadow: 0 0 3px #00bcd4;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
     }
+    .brand { font-size: .92rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+    .brand span { color: var(--cyan); }
+    .top-links { display: flex; align-items: center; gap: 10px; }
+    .text-link { color: var(--muted); text-decoration: none; padding: 9px 12px; border-radius: 999px; }
+    .text-link:hover, .text-link:focus-visible { color: var(--ink); background: rgba(255,255,255,.07); outline: none; }
 
-    h2 i {
-      color: #4dd0e1;
-      animation: iconPulse 2s infinite;
-      filter: drop-shadow(0 0 4px #00e5ff);
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 380px) minmax(0, 1fr);
+      align-items: center;
+      min-height: 680px;
+      padding: 44px 0 72px;
     }
-
-    a {
-      color: #4dd0e1;
-      text-decoration: none;
+    .identity { padding: 38px 30px; }
+    .identity:first-child { text-align: right; }
+    .eyebrow { margin: 0 0 18px; font-size: .78rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .cyber .eyebrow, .cyber h2 { color: var(--cyan); }
+    .voice .eyebrow, .voice h2 { color: var(--amber); }
+    h1 { margin: 0; font-size: clamp(3rem, 7vw, 6.5rem); line-height: .88; letter-spacing: -.07em; }
+    h1 span { display: block; font-size: .24em; letter-spacing: .19em; line-height: 1.4; color: var(--muted); text-transform: uppercase; margin-bottom: 18px; }
+    .identity h2 { margin: 0 0 12px; font-size: clamp(1.55rem, 3vw, 2.35rem); line-height: 1.08; letter-spacing: -.035em; }
+    .identity p { margin: 0 0 24px; color: var(--muted); font-size: 1rem; }
+    .portrait-wrap { position: relative; isolation: isolate; }
+    .portrait-wrap::before {
+      content: ""; position: absolute; inset: -18px; border-radius: 50%; z-index: -1;
+      background: conic-gradient(from 90deg, var(--amber), transparent 30%, var(--cyan), transparent 82%);
+      filter: blur(22px); opacity: .48;
     }
-
-    a:hover {
-      text-decoration: underline;
+    .portrait { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); box-shadow: var(--shadow); }
+    .button-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cyber .button-row { justify-content: flex-end; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 46px; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px;
+      background: rgba(255,255,255,.055); color: var(--ink); text-decoration: none; font-weight: 750;
+      cursor: pointer; transition: transform .18s ease, border-color .18s ease, background .18s ease;
     }
+    .button:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.1); }
+    .button:focus-visible { outline: 3px solid rgba(255,255,255,.3); outline-offset: 3px; }
+    .button.cyber-action { background: var(--cyan); color: #042b2e; border-color: transparent; }
+    .button.voice-action { background: var(--amber); color: #3c2100; border-color: transparent; }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #80cbc4;
+    .switcher { display: flex; justify-content: center; gap: 10px; margin-bottom: 34px; }
+    .switcher button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+    .view { display: none; padding: 20px 0 90px; }
+    .view.active { display: block; animation: arrive .35s ease both; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(8px); } }
+
+    .section-head { max-width: 740px; margin-bottom: 28px; }
+    .section-head h2 { margin: 0 0 12px; font-size: clamp(2.15rem, 5vw, 4rem); line-height: 1; letter-spacing: -.055em; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 1.08rem; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 16px 45px rgba(0,0,0,.22); }
+    .card h3 { margin: 0 0 10px; font-size: 1.25rem; letter-spacing: -.02em; }
+    .card p { color: var(--muted); margin: 0; }
+    .summary { grid-column: span 7; }
+    .skills { grid-column: span 5; }
+    .experience { grid-column: span 8; }
+    .credentials { grid-column: span 4; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .tag { padding: 7px 11px; border-radius: 999px; border: 1px solid rgba(99,230,226,.25); color: #bdf9f5; background: rgba(99,230,226,.07); font-size: .86rem; }
+    .timeline { display: grid; gap: 24px; margin-top: 18px; }
+    .role { padding-left: 18px; border-left: 2px solid rgba(99,230,226,.4); }
+    .role h4 { margin: 0; font-size: 1rem; }
+    .role .meta { margin: 3px 0 8px; color: var(--cyan); font-size: .86rem; }
+    .role p { font-size: .94rem; }
+    .credential-list { display: grid; gap: 12px; margin-top: 18px; }
+    .credential { padding: 13px 15px; border: 1px solid var(--line); border-radius: 14px; color: #d9e0ea; }
+
+    .voice-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(360px, 1.15fr); gap: 18px; align-items: stretch; }
+    .voice-copy { padding: clamp(28px, 5vw, 54px); background: linear-gradient(145deg, rgba(164,92,24,.21), rgba(18,23,33,.88) 58%); }
+    .voice-copy blockquote { margin: 22px 0 0; color: #ffe0b3; font-size: clamp(1.3rem, 2.6vw, 2rem); line-height: 1.35; letter-spacing: -.025em; }
+    .audio-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 360px; background: linear-gradient(150deg, rgba(255,196,107,.13), rgba(18,23,33,.92)); }
+    .sample-meta { color: var(--amber); font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .audio-card h3 { margin-top: 22px; font-size: clamp(2.1rem, 5vw, 4.6rem); line-height: .95; letter-spacing: -.06em; }
+    .audio-card p { max-width: 50ch; }
+    audio { width: 100%; margin-top: 34px; accent-color: var(--amber); }
+    .duration { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .82rem; margin-top: 10px; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 42px; color: var(--muted); font-size: .9rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; }
+    .footer-inner a { color: var(--ink); text-decoration: none; }
+    .footer-inner a:hover { text-decoration: underline; }
+
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr 240px 1fr; min-height: 600px; }
+      .identity { padding: 24px 16px; }
+      .identity p { font-size: .92rem; }
+      .summary, .skills, .experience, .credentials { grid-column: 1 / -1; }
+      .voice-layout { grid-template-columns: 1fr; }
     }
-
-    ul {
-      padding-left: 1.2rem;
-      line-height: 1.8;
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 24px, 1180px); }
+      .topbar { padding: 18px 0; }
+      .top-links .email { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 18px; padding: 28px 0 54px; text-align: center; }
+      .portrait-wrap { grid-row: 1; width: min(68vw, 310px); margin: 0 auto 18px; }
+      .identity, .identity:first-child { text-align: center; padding: 8px 12px; }
+      .identity:first-child { grid-row: 2; }
+      .identity:last-child { grid-row: 3; }
+      .identity p { max-width: 38ch; margin-left: auto; margin-right: auto; }
+      .cyber .button-row, .button-row { justify-content: center; }
+      h1 { font-size: clamp(3rem, 18vw, 5.2rem); }
+      .switcher { position: sticky; top: 10px; z-index: 4; padding: 7px; width: max-content; max-width: 100%; margin-left: auto; margin-right: auto; border: 1px solid var(--line); border-radius: 999px; background: rgba(9,12,18,.82); backdrop-filter: blur(16px); }
+      .switcher .button { min-height: 40px; padding: 8px 13px; font-size: .88rem; }
+      .card { padding: 22px; }
+      .audio-card { min-height: 330px; }
+      .footer-inner { flex-direction: column; gap: 8px; }
     }
-
-    /* Scroll-to-top button */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 80px; /* was 20px — move it up above the lower-left button */
-  left: 20px;
-  display: none;
-  background-color: #00bcd4;
-  color: #000;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: 0 0 10px #00bcd4;
-  z-index: 1001;
-}
-#scrollTopBtn:hover {
-  background-color: #0097a7;
-  box-shadow: 0 0 15px #00bcd4;
-}
-    /* Mobile responsiveness */
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-        border-width: 2px;
-      }
-
-      .tab-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .tab-content {
-        padding: 1.5rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      label {
-        padding: 0.5rem 1rem;
-      }
-
-      .contact-info {
-        font-size: 0.95rem;
-      }
-
-      #scrollTopBtn {
-        display: block;
-      }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-  <button class="contact-fab" onclick="document.getElementById('contactModal').style.display='flex'">
-    <i class="fas fa-address-card"></i>
-  </button>
+  <header class="shell topbar">
+    <div class="brand">Danielle <span>Vivolo</span></div>
+    <nav class="top-links" aria-label="Contact links">
+      <a class="text-link email" href="mailto:danielle.vivolo@gmail.com">Email</a>
+      <a class="text-link" href="https://linkedin.com/in/daniellevivolo" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    </nav>
+  </header>
 
-  <div id="contactModal" class="contact-modal" onclick="this.style.display='none'">
-    <div class="contact-modal-content" onclick="event.stopPropagation()">
-      <span class="close-modal" onclick="document.getElementById('contactModal').style.display='none'">&times;</span>
-      <h3><i class="fas fa-id-badge"></i> Contact Me</h3>
-      <a href="mailto:danielle.vivolo@gmail.com"><i class="fas fa-envelope"></i> danielle.vivolo@gmail.com</a>
-      <a href="tel:7372356411"><i class="fas fa-phone"></i> (737) 235-6411</a>
-      <a href="https://linkedin.com/in/daniellevivolo" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  <main>
+    <section class="shell hero" aria-labelledby="page-title">
+      <div class="identity cyber">
+        <p class="eyebrow">Analyst</p>
+        <h2>Cybersecurity</h2>
+        <p>Threat intelligence, incident response, threat hunting, and security operations.</p>
+        <div class="button-row">
+          <button class="button cyber-action" type="button" data-open="cyber">View experience</button>
+        </div>
+      </div>
+
+      <div class="portrait-wrap">
+        <img class="portrait" src="assets/danielle-portrait.png" alt="Portrait of Danielle Vivolo">
+      </div>
+
+      <div class="identity voice">
+        <p class="eyebrow">Narrator</p>
+        <h2>Voice &amp; Audio</h2>
+        <p>Short-form narration delivered with warmth, clarity, curiosity, and character.</p>
+        <div class="button-row">
+          <button class="button voice-action" type="button" data-open="voice">Hear the sample</button>
+        </div>
+      </div>
+
+      <h1 id="page-title" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Danielle Vivolo — Cybersecurity and Voice Portfolio</h1>
+    </section>
+
+    <div class="shell switcher" role="tablist" aria-label="Portfolio sections">
+      <button class="button" id="cyber-tab" role="tab" aria-selected="true" aria-controls="cyber-view" type="button" data-open="cyber">Cybersecurity</button>
+      <button class="button" id="voice-tab" role="tab" aria-selected="false" aria-controls="voice-view" type="button" data-open="voice">Voice &amp; Audio</button>
     </div>
-  </div>
-<!-- Resume FAB Button -->
-<button class="resume-fab" onclick="document.getElementById('resumeModal').style.display='flex'">
-  <i class="fas fa-file-alt"></i>
-</button>
 
-<!-- Resume Modal -->
-<div id="resumeModal" class="resume-modal" onclick="this.style.display='none'">
-  <div class="resume-modal-content" onclick="event.stopPropagation()">
-    <span class="close-modal" onclick="document.getElementById('resumeModal').style.display='none'">&times;</span>
-    <h3><i class="fas fa-file-download"></i> Download My Resume</h3>
-    <a href="Danielle_Vivolo_Resume.pdf" download>
-      <i class="fas fa-download"></i> Danielle_Vivolo_Resume.pdf
-    </a>
-  </div>
-</div>
+    <section class="shell view active" id="cyber-view" role="tabpanel" aria-labelledby="cyber-tab">
+      <div class="section-head">
+        <p class="eyebrow" style="color:var(--cyan)">Cybersecurity portfolio</p>
+        <h2>Turning technical signals into actionable intelligence.</h2>
+        <p>Cybersecurity Analyst III with experience across threat intelligence, SOC operations, incident response, vulnerability research, threat hunting, security automation, and executive reporting.</p>
+      </div>
+      <div class="grid">
+        <article class="card summary">
+          <h3>Professional focus</h3>
+          <p>I investigate threats and vulnerabilities, connect signals across endpoint and network data, and translate complex findings into clear guidance for analysts, technical teams, and leadership.</p>
+          <div class="tag-list" aria-label="Core skills">
+            <span class="tag">Cyber Threat Intelligence</span><span class="tag">Incident Response</span><span class="tag">Threat Hunting</span><span class="tag">CVE Research</span><span class="tag">IOC Enrichment</span><span class="tag">KQL</span><span class="tag">Security Automation</span><span class="tag">NetFlow Analysis</span>
+          </div>
+        </article>
+        <aside class="card skills">
+          <h3>Current toolkit</h3>
+          <p>Microsoft Sentinel, Defender for Endpoint, SentinelOne, CrowdStrike, Splunk, RSA NetWitness, Corelight, VirusTotal, Recorded Future, Intel 471, GreyNoise, Censys, CTIX, ThreatMon, PowerShell, and Logic Apps.</p>
+        </aside>
+        <article class="card experience">
+          <h3>Selected experience</h3>
+          <div class="timeline">
+            <div class="role"><h4>Cybersecurity Analyst III — Cyber Threat Intelligence</h4><p class="meta">Texas Department of Information Resources / Texas Cyber Command · 2025–Present</p><p>Researches vulnerabilities, threat actors, campaigns, and incidents affecting Texas government and public-sector organizations; supports high-priority investigations and produces actionable intelligence reporting.</p></div>
+            <div class="role"><h4>Cyber Security Analyst</h4><p class="meta">Applied Research Laboratories, The University of Texas at Austin · 2025</p><p>Investigated security alerts, enriched forensic findings, supported CMMC readiness, and managed high-volume Fidelis and ServiceDesk queues.</p></div>
+            <div class="role"><h4>Cybersecurity Support Specialist</h4><p class="meta">Texas Legislative Council · 2021–2025</p><p>Led SOC alert triage and incident response across Microsoft Sentinel and Defender for Endpoint, built automation workflows, and developed a security knowledge base.</p></div>
+          </div>
+        </article>
+        <aside class="card credentials">
+          <h3>Education &amp; certifications</h3>
+          <div class="credential-list">
+            <div class="credential"><strong>M.S.</strong><br>Cybersecurity &amp; Information Assurance<br><small>Western Governors University, 2025</small></div>
+            <div class="credential"><strong>B.S.</strong><br>Web &amp; Multimedia Design<br><small>Westwood College, 2012</small></div>
+            <div class="credential">CompTIA CySA+</div><div class="credential">CompTIA PenTest+</div><div class="credential">CompTIA Security+</div><div class="credential">ISC2 Certified in Cybersecurity</div>
+          </div>
+          <a class="button cyber-action" style="margin-top:22px;width:100%" href="Danielle_Vivolo_Cybersecurity_Resume.pdf" download>Download résumé ↓</a>
+        </aside>
+      </div>
+    </section>
 
-<!-- Scroll-to-top button -->
-<button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">
-  <i class="fas fa-arrow-up"></i>
-</button>
-
-<script>
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-<body>
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; margin-bottom: 1rem;">
-  <img 
-    src="assets/profile.png" 
-    alt="Danielle Vivolo" 
-    class="profile-pic"
-    style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #00b8b8; box-shadow: 0 0 6px rgba(0, 184, 184, 0.4); margin-bottom: 0;" 
-  />
-  <h1 style="margin: 0;">Danielle Vivolo</h1>
-  <p style="margin: 0; color: #00b8b8; font-weight: 500; text-shadow: 0 0 6px #00f0f0;"> Cybersecurity Analyst | DFIR | SOC Operations | Detection Logic | Compliance </p>
-</div>
-
-
-  <!-- Tab Inputs -->
-  <input type="radio" name="tabs" id="tab1" checked>
-  <input type="radio" name="tabs" id="tab2">
-  <input type="radio" name="tabs" id="tab3">
-  <input type="radio" name="tabs" id="tab4">
-  <input type="radio" name="tabs" id="tab5">
-
-  <!-- Tab Labels -->
-  <div class="tab-buttons">
-    <label for="tab1">About</label>
-    <label for="tab2">Experience</label>
-    <label for="tab3">Certifications</label>
-    <label for="tab4">Projects</label>
-    <label for="tab5">Skills</label>
-  </div>
-
-  <!-- About Tab Content -->
-  <div id="content1" class="tab-content">
-    <h2><i class="fas fa-user"></i> About Me</h2>
-    <p>I’m a cybersecurity analyst with 4–5 years of combined experience across public sector environments.</p>
-    <ul>
-      <li><i class="fas fa-bug"></i> Incident response, detection logic, SOC triage, alert tuning</li>
-      <li><i class="fas fa-book"></i> Creator of documentation, triage guides, and analyst workflow playbooks</li>
-      <li><i class="fas fa-shield-alt"></i> Familiar with CMMC and NIST 800-171 frameworks</li>
-      <li><i class="fas fa-cloud"></i> Exploring DevSecOps: Terraform, Azure Security, Secure Pipelines</li>
-      <li><i class="fas fa-code"></i> Enjoy translating detection logic into actionability for analysts</li>
-    </ul>
-    <p>I started my career managing technical support teams, moved into mobile application project management, and eventually found my path in infrastructure, sysadmin, and cybersecurity roles — where I thrive in operations, clarity, and collaborative problem-solving.</p>
-  </div>
-
-  <!-- Experience Tab Content -->
-  <div id="content2" class="tab-content">
-    <h2><i class="fas fa-briefcase"></i> Experience</h2>
-    <ul>
-      <li><strong>Cybersecurity Analyst – Applied Research Labs (2025–Present)</strong>
-        <ul>
-          <li><i class="fas fa-laptop-code"></i> Conduct DFIR investigations using Sentinel, Arkime, and Wireshark</li>
-          <li><i class="fas fa-cogs"></i> Draft playbooks and triage guidance for early-stage alert response</li>
-          <li><i class="fas fa-network-wired"></i> Analyze network packet captures for signs of compromise</li>
-          <li><i class="fas fa-certificate"></i> Support ongoing CMMC and NIST 800-171 compliance efforts</li>
-        </ul>
-      </li>
-      <li><p></p><strong>Security Analyst – Texas Legislative Council (2018–2025)</strong>
-        <ul>
-          <li><i class="fas fa-bolt"></i> Worked in 24/7 SOC triaging alerts and escalating threats</li>
-          <li><i class="fas fa-terminal"></i> Provided detection enrichment and event correlation analysis</li>
-          <li><i class="fas fa-user-shield"></i> Supported policy reviews, technical audits, and user access reviews</li>
-          <li><i class="fas fa-file-alt"></i> Created documentation, response guidance, and internal tools</li>
-          <li><i class="fas fa-eye"></i> Used Microsoft Defender for Endpoint and Sentinel to triage alerts and provide IOC/behavioral enrichment</li></p>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-<!-- Certifications Tab Content -->
-<!-- Certifications Tab Content -->
-<div id="content3" class="tab-content">
-  <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
-  <ul>
-    <li><i class="fas fa-university"></i> <strong>M.S. Cybersecurity</strong> – Western Governors University (2025)
-      <br><strong>WGU Coursework Highlights:</strong> Strategic and technical training across secure design, risk, and cloud security. Capstone focused on enterprise-grade endpoint detection and mobile device management (EDR + MDM).
-      <br><strong>Core Topics:</strong>
-      <ul>
-        <li>Cybersecurity Management – Aligning security programs with business goals</li>
-        <li>Security Policies & Standards – NIST 800-171, CMMC, and compliance frameworks</li>
-        <li>Risk Management – Threat modeling & third-party risk analysis</li>
-        <li>Network Security – Infrastructure defense & segmentation</li>
-        <li>Secure Software Design – DevSecOps principles, secure SDLC</li>
-        <li>Cloud Security – IAM, data protection, Azure security models</li>
-        <li><strong>Capstone:</strong> EDR + MDM implementation strategy</li>
-      </ul>
-    </li>
-
-    <li><i class="fas fa-laptop"></i> <strong>B.S. Web and Multimedia</strong> – Westwood College (2013, Summa Cum Laude)
-      <br>Combined creative design with front-end web development and digital strategy. Capstone included a portfolio site and interactive scripting work. Graduated with a 3.93 GPA.
-      <br><strong>Core Topics:</strong>
-      <ul>
-        <li>Web & Multimedia Dev – HTML/CSS, scripting, and UX planning</li>
-        <li>Advanced Web Design – SEO, UI design, and responsive development</li>
-        <li>Graphic Design Foundations – Typography, color theory, illustration</li>
-        <li>Interactive Media – 3D, animation, and video production</li>
-        <li>Marketing & Strategy – Web marketing, information architecture, e-business</li>
-        <li><strong>Capstone:</strong> Web & Multimedia Portfolio Review</li>
-      </ul>
-    </li>
-
-    <li><i class="fas fa-certificate"></i> <strong>Current Certifications:</strong>
-      <ul>
-        <li>CompTIA Security+</li>
-        <li>CompTIA CySA+</li>
-        <li>CompTIA PenTest+</li>
-        <li>ISC² Certified in Cybersecurity (CC)</li>
-      </ul>
-    </li>
-
-    <li><i class="fas fa-book-reader"></i> <strong>Studying:</strong>
-      <ul>
-        <li>SecurityX (CompTIA CASP equivalent)</li>
-        <li>ISACA CISM</li>
-        <li>Microsoft AZ-500 (Azure Security)</li>
-      </ul>
-    </li>
-  </ul>
-</div>
-
-
-
-  <!-- Projects Tab Content -->
-  <div id="content4" class="tab-content">
-    <h2><i class="fas fa-gears"></i> Projects <span style="font-size: 0.9rem; font-weight: normal;">(Work in Progress)</span></h2>
-    <ul>
-      <li><i class="fas fa-book"></i> <strong>DFIR Playbooks:</strong> Detection response workflow documentation for Microsoft Sentinel (focused on triage logic, contextual enrichment, and analyst actionability)</li>
-      <li><i class="fas fa-server"></i> <strong>Terraform Labs:</strong> Infrastructure as Code projects emphasizing secure Azure architecture and role-based access control (RBAC)</li>
-      <li><i class="fas fa-network-wired"></i> <strong>Kubernetes Labs:</strong> Hands-on learning with Kubernetes deployments, Terraform modules, and secure cluster provisioning (in progress)</li>
-    </ul>
-  </div>
-
-  <!-- Skills Tab Content -->
-  <div id="content5" class="tab-content">
-    <h2><i class="fas fa-tools"></i> Skills</h2>
-    <h3 style="color:#4dd0e1;"><i class="fas fa-terminal"></i> Technical:</h3>
-    <ul>
-      <li><i class="fas fa-shield-alt"></i> SOC Operations, Threat Detection, Alert Tuning, DFIR</li>
-      <li><i class="fas fa-cogs"></i> Microsoft Sentinel, Splunk (read-only), Arkime, Wireshark, ServiceDesk</li>
-      <li><i class="fas fa-cloud"></i> Azure Security (RBAC, Identity, Defender), Infrastructure as Code (Terraform)</li>
-      <li><i class="fas fa-code"></i> PowerShell, Markdown, YAML (exposure only), basic Python</li>
-      <li><i class="fas fa-search"></i> KQL (basic to intermediate) for Sentinel investigation queries</li>
-    </ul>
-    <h3 style="color:#4dd0e1;"><i class="fas fa-user-check"></i> Soft Skills:</h3>
-    <ul>
-      <li><i class="fas fa-book"></i> Strong documentation writer: playbooks, workflows, triage guides</li>
-      <li><i class="fas fa-users-cog"></i> Process-driven with a knack for streamlining analyst workflows</li>
-      <li><i class="fas fa-project-diagram"></i> Cross-team communicator and trusted compliance partner</li>
-    </ul>
-<section class="tryhackme-badge" style="margin-top: 2rem; text-align: center;">
-  <h3 style="color: #4dd0e1; text-shadow: 0 0 6px #00bcd4;">
-    <i class="fas fa-user-secret" style="margin-right: 8px;"></i>TryHackMe Badges
-  </h3>
-  <p style="color: #80cbc4;">I’ve just started playing around with TryHackMe, so don’t judge lol.</p>
-  <div style="
-    display: inline-block;
-    background: #1a1a1a;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 12px #004d4d;
-    margin-top: 1rem;
-    max-width: 100%;
-  ">
-    <iframe 
-      src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2772470" 
-      style="border: none; width: 310px; height: 200px; overflow: hidden;"
-      loading="lazy"
-      title="TryHackMe Badge"
-      scrolling="no"
-    ></iframe>
-  </div>
-</section>
-
-  </div>
-</div>
+    <section class="shell view" id="voice-view" role="tabpanel" aria-labelledby="voice-tab" hidden>
+      <div class="section-head">
+        <p class="eyebrow" style="color:var(--amber)">Voice &amp; audio</p>
+        <h2>The person behind the voice.</h2>
+      </div>
+      <div class="voice-layout">
+        <article class="card voice-copy">
+          <h3>About Danielle</h3>
+          <p>I’m Danielle, and I’ve always lived somewhere between instinct and analysis. I’m the person who wants to understand how something works, why it broke, and what the details are trying to tell us—but I’m just as interested in the people behind those details.</p>
+          <p style="margin-top:18px;">Cybersecurity gives my logical side a place to dig, connect patterns, and turn complexity into something useful. Voice work gives my warmer side room to breathe—to tell a story, find the feeling beneath the words, and make a real connection with whoever is listening. Those sides of me may seem at odds, but they come from the same place: curiosity, empathy, and a need to make things clearer and more human.</p>
+          <blockquote>“Whether I’m following a signal or telling a story, I’m always listening for what matters.”</blockquote>
+        </article>
+        <article class="card audio-card">
+          <div>
+            <div class="sample-meta">Narrative sample · 01</div>
+            <h3>This Is Me</h3>
+            <p>A short personal narrative—conversational, candid, and unmistakably Danielle.</p>
+          </div>
+          <div>
+            <audio controls preload="metadata">
+              <source src="assets/this-is-me.wav" type="audio/wav">
+              Your browser does not support embedded audio. <a href="assets/this-is-me.wav">Download the sample</a>.
+            </audio>
+            <div class="duration"><span>Short narrative</span><span>1:56</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Danielle Vivolo — All rights reserved.</p>
+    <div class="shell footer-inner">
+      <span>© <span id="year"></span> Danielle Vivolo</span>
+      <span><a href="mailto:danielle.vivolo@gmail.com">danielle.vivolo@gmail.com</a></span>
+    </div>
   </footer>
-</div>
+
+  <script>
+    const views = { cyber: document.querySelector('#cyber-view'), voice: document.querySelector('#voice-view') };
+    const tabs = { cyber: document.querySelector('#cyber-tab'), voice: document.querySelector('#voice-tab') };
+
+    function openView(name, scroll = true) {
+      Object.entries(views).forEach(([key, view]) => {
+        const active = key === name;
+        view.classList.toggle('active', active);
+        view.hidden = !active;
+        tabs[key].setAttribute('aria-selected', String(active));
+      });
+      history.replaceState(null, '', `#${name}`);
+      if (scroll) document.querySelector('.switcher').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.querySelectorAll('[data-open]').forEach(button => button.addEventListener('click', () => openView(button.dataset.open)));
+    document.querySelector('.switcher').addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault();
+      const next = tabs.cyber.getAttribute('aria-selected') === 'true' ? 'voice' : 'cyber';
+      openView(next, false);
+      tabs[next].focus();
+    });
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    if (location.hash === '#voice') openView('voice', false);
+  </script>
 </body>
 </html>
