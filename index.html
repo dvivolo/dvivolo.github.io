@@ -115,12 +115,15 @@
     .credential { padding: 13px 15px; border: 1px solid var(--line); border-radius: 14px; color: #d9e0ea; }
 
     .voice-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(360px, 1.15fr); gap: 18px; align-items: stretch; }
-    .voice-copy { padding: clamp(28px, 5vw, 54px); background: linear-gradient(145deg, rgba(164,92,24,.21), rgba(18,23,33,.88) 58%); }
+    .voice-copy { grid-row: span 2; padding: clamp(28px, 5vw, 54px); background: linear-gradient(145deg, rgba(164,92,24,.21), rgba(18,23,33,.88) 58%); }
     .voice-copy blockquote { margin: 22px 0 0; color: #ffe0b3; font-size: clamp(1.3rem, 2.6vw, 2rem); line-height: 1.35; letter-spacing: -.025em; }
     .audio-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 360px; background: linear-gradient(150deg, rgba(255,196,107,.13), rgba(18,23,33,.92)); }
     .sample-meta { color: var(--amber); font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
     .audio-card h3 { margin-top: 22px; font-size: clamp(2.1rem, 5vw, 4.6rem); line-height: .95; letter-spacing: -.06em; }
     .audio-card p { max-width: 50ch; }
+    .credit { margin-top: 16px; color: var(--muted); font-size: .86rem; line-height: 1.5; }
+    .credit a { color: #ffe0b3; text-decoration-color: rgba(255,224,179,.35); text-underline-offset: 3px; }
+    .credit a:hover { text-decoration-color: currentColor; }
     audio { width: 100%; margin-top: 34px; accent-color: var(--amber); }
     .duration { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .82rem; margin-top: 10px; }
 
@@ -135,6 +138,7 @@
       .identity p { font-size: .92rem; }
       .summary, .skills, .experience, .credentials { grid-column: 1 / -1; }
       .voice-layout { grid-template-columns: 1fr; }
+      .voice-copy { grid-row: auto; }
     }
     @media (max-width: 680px) {
       .shell { width: min(100% - 24px, 1180px); }
@@ -181,15 +185,15 @@
       </div>
 
       <div class="portrait-wrap">
-        <img class="portrait" src="assets/danielle-portrait.png" alt="Animated Portrait of Danielle Vivolo">
+        <img class="portrait" src="assets/danielle-portrait.png" alt="Portrait of Danielle Vivolo">
       </div>
 
       <div class="identity voice">
-        <p class="eyebrow">Voice Exploration</p>
+        <p class="eyebrow">Narrator</p>
         <h2>Voice &amp; Audio</h2>
-        <p>An evolving collection of short-form narration as I explore storytelling, tone, and the human connection behind the words.</p>
+        <p>Short-form narration delivered with warmth, clarity, curiosity, and character.</p>
         <div class="button-row">
-          <button class="button voice-action" type="button" data-open="voice">Hear my first sample</button>
+          <button class="button voice-action" type="button" data-open="voice">Hear the sample</button>
         </div>
       </div>
 
@@ -247,9 +251,9 @@
       <div class="voice-layout">
         <article class="card voice-copy">
           <h3>About Danielle</h3>
-          <p>I’m Danielle, and I’ve always lived somewhere between logic and imagination. I’m drawn to understanding how things work, why they break, and what the details are trying to tell us—but I’m equally drawn to stories, emotion, and worlds beyond the ordinary.</p>
-          <p style="margin-top:18px;">Cybersecurity gives my analytical side a place to investigate, connect patterns, and turn complexity into something useful. Voice work gives my imaginative side room to wander—to inhabit a story, find the feeling beneath the words, and connect with whoever is listening. Those parts of me may seem at odds, but they’re inseparable. Both are driven by curiosity, empathy, and the desire to uncover what lies beneath the surface.</p>
-          <blockquote>“Whether I’m making sense of something complex or stepping into another world, I’m always searching for the story beneath the surface.”</blockquote>
+          <p>I’m Danielle, and I’ve always lived somewhere between instinct and analysis. I’m the person who wants to understand how something works, why it broke, and what the details are trying to tell us—but I’m just as interested in the people behind those details.</p>
+          <p style="margin-top:18px;">Cybersecurity gives my logical side a place to dig, connect patterns, and turn complexity into something useful. Voice work gives my warmer side room to breathe—to tell a story, find the feeling beneath the words, and make a real connection with whoever is listening. Those sides of me may seem at odds, but they come from the same place: curiosity, empathy, and a need to make things clearer and more human.</p>
+          <blockquote>“Whether I’m following a signal or telling a story, I’m always listening for what matters.”</blockquote>
         </article>
         <article class="card audio-card">
           <div>
@@ -263,6 +267,24 @@
               Your browser does not support embedded audio. <a href="assets/this-is-me.wav">Download the sample</a>.
             </audio>
             <div class="duration"><span>Short narrative</span><span>1:56</span></div>
+          </div>
+        </article>
+        <article class="card audio-card">
+          <div>
+            <div class="sample-meta">Narrative sample · 02</div>
+            <h3>The Eyes Have It</h3>
+            <p>A wry science-fiction excerpt that moves from ordinary observation into completely sincere, absurd alarm.</p>
+            <div class="credit">
+              Written by Philip K. Dick · Public-domain narration excerpt<br>
+              Narrated by Danielle Vivolo · <a href="https://www.gutenberg.org/files/31516/31516-h/31516-h.htm" target="_blank" rel="noreferrer">Read the source ↗</a>
+            </div>
+          </div>
+          <div>
+            <audio controls preload="metadata">
+              <source src="assets/the-eyes-have-it.wav" type="audio/wav">
+              Your browser does not support embedded audio. <a href="assets/the-eyes-have-it.wav">Download the sample</a>.
+            </audio>
+            <div class="duration"><span>Science-fiction narration</span><span>1:42</span></div>
           </div>
         </article>
       </div>
