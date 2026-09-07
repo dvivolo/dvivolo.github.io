@@ -115,7 +115,7 @@
     .credential { padding: 13px 15px; border: 1px solid var(--line); border-radius: 14px; color: #d9e0ea; }
 
     .voice-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(360px, 1.15fr); gap: 18px; align-items: stretch; }
-    .voice-copy { grid-row: span 2; padding: clamp(28px, 5vw, 54px); background: linear-gradient(145deg, rgba(164,92,24,.21), rgba(18,23,33,.88) 58%); }
+    .voice-copy { grid-row: span 3; padding: clamp(28px, 5vw, 54px); background: linear-gradient(145deg, rgba(164,92,24,.21), rgba(18,23,33,.88) 58%); }
     .voice-copy blockquote { margin: 22px 0 0; color: #ffe0b3; font-size: clamp(1.3rem, 2.6vw, 2rem); line-height: 1.35; letter-spacing: -.025em; }
     .audio-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 360px; background: linear-gradient(150deg, rgba(255,196,107,.13), rgba(18,23,33,.92)); }
     .sample-meta { color: var(--amber); font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
@@ -269,7 +269,36 @@
             <div class="duration"><span>Short narrative</span><span>1:56</span></div>
           </div>
         </article>
-            </section>
+        <article class="card audio-card">
+          <div>
+            <div class="sample-meta">Fantasy sample · 02</div>
+            <h3>Fantasy</h3>
+            <p>A short fantasy narration excerpt.</p>
+          </div>
+          <div>
+            <audio controls preload="metadata">
+              <source src="assets/fantasy-sample.wav" type="audio/wav">
+              Your browser does not support embedded audio. <a href="assets/fantasy-sample.wav">Download the sample</a>.
+            </audio>
+            <div class="duration"><span>Fantasy narration</span><span>0:38</span></div>
+          </div>
+        </article>
+        <article class="card audio-card">
+          <div>
+            <div class="sample-meta">Thriller sample · 03</div>
+            <h3>Thriller</h3>
+            <p>A short thriller narration excerpt.</p>
+          </div>
+          <div>
+            <audio controls preload="metadata">
+              <source src="assets/thriller-sample.wav" type="audio/wav">
+              Your browser does not support embedded audio. <a href="assets/thriller-sample.wav">Download the sample</a>.
+            </audio>
+            <div class="duration"><span>Thriller narration</span><span>0:41</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer>
